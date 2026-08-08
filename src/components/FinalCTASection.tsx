@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, MessageCircle, Clock, ShieldCheck, FileCheck, ExternalLink } from 'lucide-react';
-import { SITE_CONFIG } from '@/lib/metadata';
+import { ArrowUpRight, Clock, ShieldCheck, FileCheck } from 'lucide-react';
 
 export default function FinalCTASection() {
   return (
@@ -20,29 +19,17 @@ export default function FinalCTASection() {
               Prêt à confier votre projet à notre atelier de 5 plumes ?
             </h2>
             <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto mb-10 font-normal">
-              Roman, essai, livre enfants, biographie, ebook ou publication KDP : échangeons en toute confidentialité sous 24h ouvrées.
+              Roman, essai, livre enfants, biographie, ebook ou publication KDP : qualifiez votre besoin en 1 minute. Les canaux de contact direct vous sont ouverts immédiatement après soumission.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
               <Link
                 href="/contact"
-                className="btn-white-pill px-8 py-4 text-sm font-bold flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="btn-white-pill px-8 py-4 text-sm font-bold flex items-center justify-center gap-2 w-full sm:w-auto shadow-pill hover:scale-105"
               >
-                <span>Discutons de votre projet</span>
+                <span>Remplir le formulaire & Débloquer les contacts</span>
                 <ArrowUpRight className="w-5 h-5 text-[#2A1B12]" />
               </Link>
-
-              <a
-                href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent(
-                  'Bonjour Atelier PrêtePlume, je souhaite échanger sur un projet d\'écriture.'
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-pill px-8 py-4 text-sm font-semibold rounded-full flex items-center justify-center gap-2 text-white hover:bg-white/20 w-full sm:w-auto"
-              >
-                <MessageCircle className="w-5 h-5 text-[#25D366]" />
-                <span>Message WhatsApp immédiat</span>
-              </a>
             </div>
 
             <div className="pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-8 text-xs text-white/70">
@@ -56,7 +43,7 @@ export default function FinalCTASection() {
               </div>
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-[#25D366]" />
-                <span>Accord NDA & Cession des droits</span>
+                <span>Accord NDA & Cession 100% des droits</span>
               </div>
             </div>
           </div>

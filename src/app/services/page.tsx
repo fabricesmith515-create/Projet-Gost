@@ -1,14 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 import { constructMetadata } from '@/lib/metadata';
-import { BookOpen, FileText, UserCheck, Mic, FileSpreadsheet, Edit3, CheckCircle2, ArrowUpRight, BookHeart, Compass, Feather, Sparkles, Share2 } from 'lucide-react';
+import { BookOpen, FileText, UserCheck, Mic, FileSpreadsheet, Edit3, CheckCircle2, ArrowUpRight, BookHeart, Compass, Feather, Sparkles, Share2, ShieldCheck, Clock } from 'lucide-react';
 import ProcessTimeline from '@/components/ProcessTimeline';
 import FinalCTASection from '@/components/FinalCTASection';
 
 export const metadata = constructMetadata({
-  title: 'Catalogue des Prestations & Genres — PrêtePlume',
+  title: 'Catalogue des Prestations & Formats sur-mesure — PrêtePlume',
   description:
-    'Découvrez les 11 catégories de rédaction sur-mesure de notre atelier : romans, essais, nouvelles, contes enfants, ebooks, biographies et publication KDP Amazon.',
+    'Découvrez les 11 offres de rédaction sur-mesure de notre atelier : romans, essais, nouvelles, contes enfants, ebooks, biographies et publication KDP Amazon. Devis gratuit sous 24h sans engagement.',
   canonical: 'https://preteplume.com/services',
 });
 
@@ -16,7 +16,7 @@ export default function ServicesPage() {
   const serviceDetails = [
     {
       id: 'romans',
-      title: 'Romans (Tous Genres)',
+      title: 'Offre Roman (Tous Genres)',
       icon: BookHeart,
       subtitle: 'Romance, Thriller, Fantasy, Historique & Littéraire',
       description:
@@ -29,11 +29,12 @@ export default function ServicesPage() {
         'Jusqu\'à 2 séries de révisions par chapitre',
         'Cession intégrale des droits d\'auteur & NDA confidentiel',
       ],
+      pricingNote: 'Tarif sur devis gratuit sous 24h selon la longueur et l\'échéance',
       deliverable: 'Manuscrit complet (DOCX / EPUB / Broché prêt pour édition ou KDP)',
     },
     {
       id: 'essais',
-      title: 'Essais & Manifestes',
+      title: 'Offre Essai & Manifeste',
       icon: Compass,
       subtitle: 'Posez votre pensée philosophique, sociétale ou d\'entreprise',
       description:
@@ -45,26 +46,12 @@ export default function ServicesPage() {
         'Rédaction au style incisif et élégant (100 à 220 pages)',
         'Cession des droits d\'auteur & NDA',
       ],
+      pricingNote: 'Tarif sur devis gratuit sous 24h (selon le volume de recherche)',
       deliverable: 'Manuscrit d\'essai prêt pour l\'imprimeur ou l\'éditeur',
     },
     {
-      id: 'nouvelles',
-      title: 'Nouvelles & Recueils',
-      icon: Feather,
-      subtitle: 'Le format court ciselé à forte intensité dramatique',
-      description:
-        'Que ce soit pour une nouvelle unique ou un recueil thématique, notre atelier rédige des récits courts où chaque mot compte.',
-      forWho: 'Créateurs de contenus, concours littéraires, recueils thématiques.',
-      included: [
-        'Cadrage du concept et de la chute',
-        'Écriture ciselée et poétique (1 500 à 10 000 mots par nouvelle)',
-        'Mise en cohérence du recueil complet',
-      ],
-      deliverable: 'Recueil numéroté prêt à publier',
-    },
-    {
       id: 'enfants',
-      title: 'Livres pour Enfants & Contes',
+      title: 'Offre Livre pour Enfants & Conte',
       icon: Sparkles,
       subtitle: 'Éveillez l\'imaginaire des plus jeunes avec poésie',
       description:
@@ -75,11 +62,12 @@ export default function ServicesPage() {
         'Rédaction adaptée aux tranches d\'âge (3-6 ans, 7-10 ans, ados)',
         'Relecture à voix haute pour vérifier le rythme sonore',
       ],
+      pricingNote: 'Tarif sur devis gratuit sous 24h selon le format et l\'âge cible',
       deliverable: 'Texte découpé avec consignes d\'illustration',
     },
     {
       id: 'kdp',
-      title: 'Publication KDP Amazon',
+      title: 'Offre Publication KDP Amazon',
       icon: Share2,
       subtitle: 'Publiez et vendez votre livre en autonomie sur Amazon',
       description:
@@ -91,11 +79,12 @@ export default function ServicesPage() {
         'Rédaction de la fiche produit vendeuse et sélection des mots-clés SEO KDP',
         'Configuration de votre compte auteur et mise en ligne',
       ],
+      pricingNote: 'Tarif sur devis gratuit sous 24h (pack complet ou à la carte)',
       deliverable: 'Livre publié et disponible à la commande sur Amazon',
     },
     {
       id: 'ebooks',
-      title: 'Ebooks & Livres d\'Expert',
+      title: 'Offre Ebook & Livre d\'Expert',
       icon: BookOpen,
       subtitle: 'Positionnez votre autorité professionnelle',
       description:
@@ -107,28 +96,46 @@ export default function ServicesPage() {
         'Résumé 4ème de couverture et préface',
         'Cession totale des droits d\'auteur & NDA',
       ],
+      pricingNote: 'Tarif sur devis gratuit sous 24h après analyse de votre projet',
       deliverable: 'Fichier manuscrit complet prêt pour publication',
     },
     {
       id: 'biographies',
-      title: 'Biographies & Mémoires',
+      title: 'Offre Biographie & Mémoires',
       icon: UserCheck,
       subtitle: 'Transmettez votre mémoire familiale ou votre saga d\'entreprise',
       description:
-        'Consignes les moments clés de votre existence ou l\'histoire de votre entreprise familiale dans un récit chaleureux et littéraire.',
+        'Consignez les moments clés de votre existence ou l\'histoire de votre entreprise familiale dans un récit chaleureux et littéraire.',
       forWho: 'Familles d\'entrepreneurs, fondateurs, mémorialistes.',
       included: [
         'Entretiens de mémoire confidentiels à domicile ou à distance',
         'Mise en récit narrative des souvenirs et archives',
         'Conseils de reliure et d\'impression de prestige',
       ],
+      pricingNote: 'Tarif sur devis gratuit sous 24h (selon le nombre d\'heures d\'entretiens)',
       deliverable: 'Ouvrage biographique relié prêt pour tirage privé',
     },
     {
+      id: 'nouvelles',
+      title: 'Offre Nouvelles & Recueils',
+      icon: Feather,
+      subtitle: 'Le format court ciselé à forte intensité dramatique',
+      description:
+        'Que ce soit pour une nouvelle unique ou un recueil thématique, notre atelier rédige des récits courts où chaque mot compte.',
+      forWho: 'Créateurs de contenus, concours littéraires, recueils thématiques.',
+      included: [
+        'Cadrage du concept et de la chute',
+        'Écriture ciselée et poétique (1 500 à 10 000 mots par nouvelle)',
+        'Mise en cohérence du recueil complet',
+      ],
+      pricingNote: 'Tarif sur devis gratuit sous 24h selon la longueur du recueil',
+      deliverable: 'Recueil numéroté prêt à publier',
+    },
+    {
       id: 'discours',
-      title: 'Discours & Prises de Parole',
+      title: 'Offre Discours & Allocutions',
       icon: Mic,
-      subtitle: 'Captivez votre auditoire lors de vos allocutions',
+      subtitle: 'Captivez votre auditoire lors de vos interventions',
       description:
         'Discours de convention annuelle, vœux de direction ou événements solennels calibrés sur le rythme oral.',
       forWho: 'PDG, Directeurs Généraux, conférenciers.',
@@ -136,6 +143,7 @@ export default function ServicesPage() {
         'Calcul du timing (5, 15 ou 30 minutes)',
         'Indications de ton et silences sur le prompteur',
       ],
+      pricingNote: 'Tarif sur devis gratuit sous 24h',
       deliverable: 'Texte avec guide de diction oral',
     },
   ];
@@ -146,13 +154,13 @@ export default function ServicesPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto glass-panel rounded-[2.5rem] p-8 sm:p-12 border border-white/15 shadow-glass">
           <span className="text-xs font-semibold uppercase tracking-widest text-[#F6A028] mb-3 block">
-            Catalogue d'Atelier
+            Offres Structurées & Sur-Mesure
           </span>
           <h1 className="font-editorial text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-            Nos Prestations & Genres Littéraires
+            Nos Prestations & Formats Éditoriaux
           </h1>
           <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Chaque mission est attribuée à l'auteur spécialisé du collectif (romans, essais, jeunesse, ebooks, biographies, KDP).
+            Chaque offre fait l'objet d'une proposition sur-mesure. Remplissez le formulaire de cadrage (nom, pays, genre, attentes, volume & budget) pour obtenir votre devis et débloquer les outils de contact direct.
           </p>
         </div>
       </section>
@@ -190,11 +198,16 @@ export default function ServicesPage() {
                     <p className="text-xs text-white/70">{service.forWho}</p>
                   </div>
 
+                  <div className="p-3.5 rounded-xl bg-[#2A1B12]/60 border border-white/10 text-xs text-[#F6A028] flex items-center gap-2">
+                    <Clock className="w-4 h-4 shrink-0" />
+                    <span>{service.pricingNote}</span>
+                  </div>
+
                   <Link
                     href="/contact"
-                    className="btn-white-pill text-xs px-6 py-3 w-fit mt-2 inline-flex items-center gap-2"
+                    className="btn-white-pill text-xs px-6 py-3.5 w-fit mt-2 inline-flex items-center gap-2 shadow-pill hover:scale-105"
                   >
-                    <span>Réserver cette prestation</span>
+                    <span>Demander mon devis & Débloquer les contacts</span>
                     <ArrowUpRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -202,7 +215,7 @@ export default function ServicesPage() {
                 {/* Right included */}
                 <div className="lg:col-span-7 bg-white/5 p-6 sm:p-8 rounded-3xl border border-white/10 backdrop-blur-md">
                   <h3 className="font-editorial text-xl font-bold text-white mb-6 border-b border-white/10 pb-3">
-                    Ce qui est inclus par l'atelier :
+                    Ce qui est inclus dans l'offre :
                   </h3>
                   <ul className="space-y-4 mb-8">
                     {service.included.map((item, i) => (
