@@ -1,6 +1,8 @@
 import { getAllPosts } from '@/lib/mdx';
 import { SITE_CONFIG } from '@/lib/metadata';
 
+export const dynamic = 'force-static';
+
 export async function GET() {
   const posts = getAllPosts();
 
