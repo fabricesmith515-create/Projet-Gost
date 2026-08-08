@@ -41,7 +41,7 @@ export default function ServicesPage() {
       forWho: 'Penseurs, dirigeants, consultants, universitaires et essayistes.',
       included: [
         'Analyse de vos thèses et recueil de vos notes d\'analyse',
-        'Structuration logique de l'argumentaire et des chapitres',
+        'Structuration logique de l\'argumentaire et des chapitres',
         'Rédaction au style incisif et élégant (100 à 220 pages)',
         'Cession des droits d\'auteur & NDA',
       ],
@@ -115,7 +115,7 @@ export default function ServicesPage() {
       icon: UserCheck,
       subtitle: 'Transmettez votre mémoire familiale ou votre saga d\'entreprise',
       description:
-        'Consignez les moments clés de votre existence ou l\'histoire de votre entreprise familiale dans un récit chaleureux et littéraire.',
+        'Consignes les moments clés de votre existence ou l\'histoire de votre entreprise familiale dans un récit chaleureux et littéraire.',
       forWho: 'Familles d\'entrepreneurs, fondateurs, mémorialistes.',
       included: [
         'Entretiens de mémoire confidentiels à domicile ou à distance',
@@ -160,7 +160,7 @@ export default function ServicesPage() {
       {/* Services Detailed List */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-16">
-          {serviceDetails.map((service, index) => {
+          {serviceDetails.map((service) => {
             const Icon = service.icon;
             return (
               <div
