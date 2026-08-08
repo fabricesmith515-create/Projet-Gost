@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, projectType, budget, message, honeypot } = body;
+    const { name, email, projectType, currency, budget, message, honeypot } = body;
 
     // Honeypot check
     if (honeypot) {
@@ -34,14 +34,15 @@ export async function POST(request: Request) {
           subject: `[Contact PrêtePlume] Nouveau projet de ${name} (${projectType || 'Général'})`,
           html: `
             <div style="font-family: Arial, sans-serif; color: #1A1A2E; max-width: 600px; margin: 0 auto; border: 1px solid #E5E0D8; padding: 24px; border-radius: 12px;">
-              <h2 style="color: #C75B39;">Nouveau message de contact — PrêtePlume</h2>
+              <h2 style="color: #D94A1E;">Nouveau message de contact — PrêtePlume</h2>
               <p><strong>Nom :</strong> ${name}</p>
               <p><strong>Email :</strong> ${email}</p>
               <p><strong>Type de projet :</strong> ${projectType || 'Non spécifié'}</p>
+              <p><strong>Devise :</strong> ${currency || 'EUR (€)'}</p>
               <p><strong>Budget indicatif :</strong> ${budget || 'Non spécifié'}</p>
               <hr style="border: 0; border-top: 1px solid #E5E0D8; margin: 16px 0;" />
               <h4 style="margin-bottom: 8px;">Message :</h4>
-              <p style="white-space: pre-wrap; background: #FAF8F4; padding: 16px; border-radius: 8px;">${message}</p>
+              <p style="white-space: pre-wrap; background: #FAF8F4; padding: 16px; border-radius: 8px; color: #1A1A2E;">${message}</p>
             </div>
           `,
         }),

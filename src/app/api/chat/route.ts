@@ -65,10 +65,41 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Messages invalides' }, { status: 400 });
     }
 
+    const anthropicKey = process.env.ANTHROPIC_API_KEY;
     const openaiKey = process.env.OPENAI_API_KEY;
 
+    // 1. Support for Anthropic Claude (if ANTHROPIC_API_KEY is present)
+    if (anthropicKey) {
+      const formattedMessages = messages.map((m: { role: string; content: string }) => ({
+        role: m.role === 'assistant' ? 'assistant' : 'user',
+        content: m.content,
+      }));
+
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': anthropicKey,
+          'anthropic-version': '2023-06-01',
+        },
+        body: JSON.stringify({
+          model: 'claude-3-haiku-20240307',
+          max_tokens: 600,
+          system: SYSTEM_PROMPT,
+          messages: formattedMessages,
+        }),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        const reply = data.content?.[0]?.text || 'Comment puis-je vous aider sur votre projet d\'écriture ?';
+        return NextResponse.json({ reply, provider: 'anthropic' });
+      }
+    }
+
+    // 2. Support for OpenAI (if OPENAI_API_KEY is present)
     if (openaiKey) {
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      const res = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -81,16 +112,14 @@ export async function POST(request: Request) {
         }),
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        const reply =
-          data.choices[0]?.message?.content ||
-          'Comment puis-je vous aider sur votre projet d\'écriture (Roman, Essai, Livre enfant, Ebook, Biographie, KDP) ?';
-        return NextResponse.json({ reply });
+      if (res.ok) {
+        const data = await res.json();
+        const reply = data.choices[0]?.message?.content || 'Comment puis-je vous aider sur votre projet d\'écriture ?';
+        return NextResponse.json({ reply, provider: 'openai' });
       }
     }
 
-    // Fallback response handling adhering strictly to the system prompt guidelines
+    // 3. Fallback response handling if no LLM API key is configured
     const lastUserMsg = messages[messages.length - 1]?.content?.toLowerCase() || '';
 
     let reply =
