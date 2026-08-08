@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Feather, Menu, X, ArrowUpRight, MessageCircle } from 'lucide-react';
+import { Feather, Menu, X, ArrowUpRight, ExternalLink } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/metadata';
 
 export default function Header() {
@@ -26,101 +26,95 @@ export default function Header() {
   const navItems = [
     { name: 'Services', path: '/services' },
     { name: 'À propos', path: '/a-propos' },
+    { name: 'Portfolio', path: '/#portfolio' },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#FAF8F4]/90 backdrop-blur-md shadow-soft py-3 border-b border-[#E5E0D8]'
-          : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-2.5 group transition-transform duration-200 hover:scale-[1.01]"
-          >
-            <div className="w-10 h-10 rounded-full bg-[#1A1A2E] text-[#FAF8F4] flex items-center justify-center transition-colors group-hover:bg-[#C75B39]">
-              <Feather className="w-5 h-5" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-editorial text-2xl font-bold tracking-tight text-[#1A1A2E]">
-                Prête<span className="text-[#C75B39] font-normal italic">Plume</span>
-              </span>
-              <span className="text-[10px] uppercase tracking-widest text-[#5A5A72] font-medium -mt-1">
-                Ghostwriter
-              </span>
-            </div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => {
-              const isActive = pathname === item.path;
-              return (
-                <Link
-                  key={item.path}
-                  href={item.path}
-                  className={`text-sm font-medium transition-colors hover:text-[#C75B39] relative py-1 ${
-                    isActive ? 'text-[#C75B39]' : 'text-[#1A1A2E]'
-                  }`}
-                >
-                  {item.name}
-                  {isActive && (
-                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#C75B39] rounded-full animate-fade-in" />
-                  )}
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Action CTAs */}
-          <div className="hidden md:flex items-center gap-4">
-            <a
-              href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent('Bonjour, je souhaite échanger sur un projet d\'écriture.')}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-semibold text-[#1A1A2E] hover:text-[#C75B39] flex items-center gap-1.5 px-3 py-2 rounded-full border border-[#D9CBB9] hover:border-[#C75B39] transition-all duration-200"
-            >
-              <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
-              WhatsApp
-            </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-[#C75B39] hover:bg-[#B04A2A] text-white text-sm font-medium px-5 py-2.5 rounded-full shadow-soft hover:shadow-elevated transition-all duration-200 hover:-translate-y-0.5"
-            >
-              <span>Discutons de votre projet</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 py-4 sm:py-6 px-4 sm:px-6 transition-all duration-300">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        {/* Logo in Refined Serif Small Caps */}
+        <Link
+          href="/"
+          className="flex items-center gap-3 group transition-transform duration-200 hover:scale-105"
+        >
+          <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#F6A028] flex items-center justify-center group-hover:bg-white group-hover:text-[#2A1B12] transition-all">
+            <Feather className="w-5 h-5" />
           </div>
+          <div className="flex flex-col">
+            <span className="logo-caps text-white font-bold tracking-[0.2em]">
+              PRÊTE<span className="text-[#F6A028] font-normal">PLUME</span>
+            </span>
+            <span className="text-[9px] uppercase tracking-widest text-white/70 font-medium -mt-0.5">
+              Atelier & Collectif de Plumes
+            </span>
+          </div>
+        </Link>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-[#1A1A2E] hover:bg-[#F4EFEA] transition-colors"
-            aria-label="Toggle menu"
+        {/* Centered Floating Glass Pill Navigation */}
+        <nav className="hidden md:flex items-center gap-1.5 px-4 py-2 rounded-full glass-panel shadow-pill border border-white/15">
+          {navItems.map((item) => {
+            const isActive = pathname === item.path;
+            return (
+              <Link
+                key={item.path}
+                href={item.path}
+                className={`text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 ${
+                  isActive
+                    ? 'bg-white text-[#2A1B12] shadow-sm'
+                    : 'text-white/80 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Action CTAs: ComeUp Badge + White Pill Contact Button */}
+        <div className="hidden lg:flex items-center gap-3">
+          <a
+            href={SITE_CONFIG.comeup}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs font-medium text-white/80 hover:text-white px-3.5 py-2 rounded-full glass-pill flex items-center gap-1.5 transition-all"
+            title="Vérifier notre profil sur ComeUp (Horizonrose)"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            <span>Horizonrose</span>
+            <ExternalLink className="w-3 h-3 text-[#F6A028]" />
+          </a>
+
+          <Link
+            href="/contact"
+            className="btn-white-pill text-xs px-5 py-2.5 flex items-center gap-1.5 group"
+          >
+            <span>Discutons de votre projet</span>
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2.5 rounded-full glass-panel text-white focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
 
-      {/* Mobile Drawer Navigation */}
+      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[65px] bg-[#FAF8F4] z-40 px-6 py-8 flex flex-col justify-between border-t border-[#E5E0D8] animate-fade-in">
-          <nav className="flex flex-col gap-6">
+        <div className="md:hidden fixed inset-x-4 top-20 glass-panel-darker rounded-[2rem] p-6 z-50 border border-white/20 shadow-glass animate-fade-in flex flex-col gap-6">
+          <nav className="flex flex-col gap-3">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 href={item.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`font-editorial text-2xl font-semibold border-b border-[#E5E0D8] pb-3 ${
-                  pathname === item.path ? 'text-[#C75B39]' : 'text-[#1A1A2E]'
+                className={`font-editorial text-xl font-bold py-2 border-b border-white/10 ${
+                  pathname === item.path ? 'text-[#F6A028]' : 'text-white'
                 }`}
               >
                 {item.name}
@@ -128,22 +122,22 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex flex-col gap-4 mt-8">
+          <div className="flex flex-col gap-3 pt-2">
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center bg-[#C75B39] hover:bg-[#B04A2A] text-white font-medium py-3.5 rounded-full shadow-soft"
+              className="btn-white-pill text-center py-3 text-sm"
             >
               Discutons de votre projet
             </Link>
             <a
-              href={`https://wa.me/${SITE_CONFIG.whatsapp}?text=${encodeURIComponent('Bonjour, je souhaite échanger sur un projet d\'écriture.')}`}
+              href={SITE_CONFIG.comeup}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full text-center border border-[#1A1A2E] text-[#1A1A2E] font-medium py-3 rounded-full flex items-center justify-center gap-2"
+              className="glass-pill text-center py-2.5 text-xs text-white/90 flex items-center justify-center gap-1.5"
             >
-              <MessageCircle className="w-4 h-4 text-[#25D366]" />
-              Échanger sur WhatsApp
+              <span>Profil ComeUp (Horizonrose)</span>
+              <ExternalLink className="w-3.5 h-3.5 text-[#F6A028]" />
             </a>
           </div>
         </div>

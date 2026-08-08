@@ -2,21 +2,26 @@ import { Metadata } from 'next';
 
 export const SITE_CONFIG = {
   name: 'PrêtePlume',
+  publisher: 'Digital Product World LTD',
   domain: 'preteplume.com',
   url: 'https://preteplume.com',
-  description: 'Services de ghostwriting haut de gamme et rédaction sur-mesure : ebooks, livres, articles, discours, biographies et contenus professionnels.',
+  description: 'Atelier d\'écriture & collectif de 5 plumes dirigé par son fondateur. Rédaction sur-mesure de romans, essais, nouvelles, livres enfants, ebooks, biographies et publication KDP.',
   email: 'contact@preteplume.com',
-  phone: '+33600000000', // À personnaliser
+  phone: '+33600000000', // À personnaliser par le propriétaire
   whatsapp: '33600000000',
-  author: 'PrêtePlume',
+  comeup: 'https://comeup.com/@horizonrose',
+  founder: 'Horizonrose',
+  targetRegions: ['France', 'Suisse', 'Belgique', 'Québec (Canada)'],
+  currencies: ['€ (EUR)', 'CHF (Suisse)', 'CAD (Canada)'],
   social: {
-    linkedin: 'https://linkedin.com/in/preteplume',
+    linkedin: 'https://linkedin.com/company/preteplume',
     twitter: 'https://twitter.com/preteplume',
+    comeup: 'https://comeup.com/@horizonrose',
   },
 };
 
 export function constructMetadata({
-  title = `${SITE_CONFIG.name} — Ghostwriter & Redacteur de l'Ombre`,
+  title = `${SITE_CONFIG.name} — Atelier d'Écriture & Collectif de 5 Plumes`,
   description = SITE_CONFIG.description,
   image = '/images/og-image.jpg',
   noIndex = false,
@@ -32,19 +37,23 @@ export function constructMetadata({
     title,
     description,
     keywords: [
+      'atelier d écriture',
+      'collectif de plumes',
       'ghostwriter',
       'prête-plume',
-      'rédacteur de l ombre',
+      'rédacteur de roman',
+      'écrire un roman',
+      'rédaction essai',
+      'livre pour enfants',
+      'publication KDP Amazon',
       'rédaction ebook',
-      'écrire un livre',
       'biographe',
       'rédaction discours',
       'livre blanc',
-      'rédaction contenu web',
-      'prête plume francophone',
+      'Horizonrose ComeUp',
     ],
-    authors: [{ name: SITE_CONFIG.author }],
-    creator: SITE_CONFIG.author,
+    authors: [{ name: SITE_CONFIG.name }],
+    creator: SITE_CONFIG.publisher,
     openGraph: {
       title,
       description,
@@ -98,14 +107,15 @@ export function generateProfessionalServiceSchema() {
     },
     description: SITE_CONFIG.description,
     knowsLanguage: ['fr'],
-    areaServed: ['FR', 'BE', 'CH', 'CA', 'AFR'],
+    areaServed: ['FR', 'CH', 'BE', 'CA'],
     serviceType: [
-      'Ghostwriting',
-      'Rédaction d Ebook',
-      'Écriture de livre d entreprise',
+      'Ghostwriting de Romans',
+      'Rédaction d Essais & Nouvelles',
+      'Livres pour Enfants',
+      'Publication KDP Amazon',
+      'Ebooks & Livres d d\'Expert',
       'Biographies',
       'Discours de direction',
-      'Livres blancs',
     ],
   };
 }

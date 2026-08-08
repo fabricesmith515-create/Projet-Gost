@@ -1,36 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', 'Fraunces', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --color-cream: #FAF8F4;
-  --color-ink: #1A1A2E;
-  --color-terracotta: #C75B39;
-  --color-brass: #B08D57;
+  --bg-gradient: linear-gradient(135deg, #E8590C 0%, #D94A1E 40%, #F6A028 100%);
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--color-cream);
-  color: var(--color-ink);
   font-family: var(--font-sans);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
 body {
-  background-color: #FAF8F4;
-  color: #1A1A2E;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: #FDF6EC;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
 ::selection {
-  background-color: #F9ECE8;
-  color: #C75B39;
+  background-color: #F6A028;
+  color: #1E120C;
 }
 
 /* Custom scrollbar */
@@ -39,22 +36,66 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #FAF8F4;
+  background: #1E120C;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D9CBB9;
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B08D57;
+  background: #F6A028;
+}
+
+/* Glassmorphism utility classes */
+.glass-panel {
+  background: rgba(42, 27, 18, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.glass-panel-darker {
+  background: rgba(25, 15, 10, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FDF6EC;
+}
+
+.glass-pill:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.btn-white-pill {
+  background-color: #FFFFFF;
+  color: #2A1B12;
+  font-weight: 600;
+  border-radius: 9999px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-white-pill:hover {
+  background-color: rgba(255, 255, 255, 0.92);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Typography styles */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
-  color: #1A1A2E;
+  color: #FDF6EC;
   letter-spacing: -0.02em;
 }
 
@@ -62,10 +103,19 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
 }
 
-/* MDX Article Styling */
+/* Logo refined caps style */
+.logo-caps {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* MDX Article Styling for Dark Glass */
 .prose {
   max-width: 68ch;
-  color: #2B2B40;
+  color: #FDF6EC;
   font-size: 1.125rem;
   line-height: 1.8;
 }
@@ -78,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-size: 1.875rem;
   font-weight: 700;
-  color: #1A1A2E;
+  color: #FDF6EC;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   line-height: 1.3;
@@ -88,7 +138,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-size: 1.5rem;
   font-weight: 600;
-  color: #1A1A2E;
+  color: #FDF6EC;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
   line-height: 1.3;
@@ -98,15 +148,15 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.25rem;
-  border-left: 3px solid #C75B39;
+  border-left: 3px solid #F6A028;
   padding-left: 1.25rem;
   margin-top: 1.75rem;
   margin-bottom: 1.75rem;
-  color: #1A1A2E;
-  background: #F4EFEA;
+  color: #FDF6EC;
+  background: rgba(255, 255, 255, 0.05);
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border-radius: 0 0.5rem 0.5rem 0;
+  border-radius: 0 0.75rem 0.75rem 0;
 }
 
 .prose ul, .prose ol {
@@ -128,17 +178,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .prose a {
-  color: #C75B39;
+  color: #F6A028;
   text-decoration: underline;
   text-underline-offset: 4px;
   transition: color 0.2s ease;
 }
 
 .prose a:hover {
-  color: #B04A2A;
+  color: #FFFFFF;
 }
 
-/* Animations */
+/* Typewriter animation cursor */
 @keyframes cursorBlink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }

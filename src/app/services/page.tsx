@@ -1,194 +1,221 @@
 import React from 'react';
 import Link from 'next/link';
 import { constructMetadata } from '@/lib/metadata';
-import { BookOpen, FileText, UserCheck, Mic, FileSpreadsheet, Edit3, CheckCircle2, ArrowUpRight } from 'lucide-react';
+import { BookOpen, FileText, UserCheck, Mic, FileSpreadsheet, Edit3, CheckCircle2, ArrowUpRight, BookHeart, Compass, Feather, Sparkles, Share2 } from 'lucide-react';
 import ProcessTimeline from '@/components/ProcessTimeline';
 import FinalCTASection from '@/components/FinalCTASection';
 
 export const metadata = constructMetadata({
-  title: 'Services de Ghostwriting & Rédaction — PrêtePlume',
+  title: 'Catalogue des Prestations & Genres — PrêtePlume',
   description:
-    'Découvrez mes prestations de rédaction sur-mesure : ebooks, livres d\'expert, biographies, discours de direction, contenus web et réécriture.',
+    'Découvrez les 11 catégories de rédaction sur-mesure de notre atelier : romans, essais, nouvelles, contes enfants, ebooks, biographies et publication KDP Amazon.',
   canonical: 'https://preteplume.com/services',
 });
 
 export default function ServicesPage() {
   const serviceDetails = [
     {
+      id: 'romans',
+      title: 'Romans (Tous Genres)',
+      icon: BookHeart,
+      subtitle: 'Romance, Thriller, Fantasy, Historique & Littéraire',
+      description:
+        'Donnez vie à vos idées d\'intrigues et d\'univers fictionnels. Notre romancière spécialisée prend en charge la structuration dramaturgique, le développement des personnages et la rédaction intégrale.',
+      forWho: 'Auteurs en devenir, passionnés de narration, créateurs d\'univers.',
+      included: [
+        'Établissement du synopsis détaillé et des fiches personnages',
+        'Rédaction narrative complète par vagues de chapitres (150 à 350 pages)',
+        'Harmonisation du suspense, des dialogues et du rythme',
+        'Jusqu\'à 2 séries de révisions par chapitre',
+        'Cession intégrale des droits d\'auteur & NDA confidentiel',
+      ],
+      deliverable: 'Manuscrit complet (DOCX / EPUB / Broché prêt pour édition ou KDP)',
+    },
+    {
+      id: 'essais',
+      title: 'Essais & Manifestes',
+      icon: Compass,
+      subtitle: 'Posez votre pensée philosophique, sociétale ou d\'entreprise',
+      description:
+        'L\'essai permet d\'exposer un point de vue tranché ou une thèse novatrice. Notre plume essayiste structure votre argumentaire avec rigueur et profondeur.',
+      forWho: 'Penseurs, dirigeants, consultants, universitaires et essayistes.',
+      included: [
+        'Analyse de vos thèses et recueil de vos notes d\'analyse',
+        'Structuration logique de l'argumentaire et des chapitres',
+        'Rédaction au style incisif et élégant (100 à 220 pages)',
+        'Cession des droits d\'auteur & NDA',
+      ],
+      deliverable: 'Manuscrit d\'essai prêt pour l\'imprimeur ou l\'éditeur',
+    },
+    {
+      id: 'nouvelles',
+      title: 'Nouvelles & Recueils',
+      icon: Feather,
+      subtitle: 'Le format court ciselé à forte intensité dramatique',
+      description:
+        'Que ce soit pour une nouvelle unique ou un recueil thématique, notre atelier rédige des récits courts où chaque mot compte.',
+      forWho: 'Créateurs de contenus, concours littéraires, recueils thématiques.',
+      included: [
+        'Cadrage du concept et de la chute',
+        'Écriture ciselée et poétique (1 500 à 10 000 mots par nouvelle)',
+        'Mise en cohérence du recueil complet',
+      ],
+      deliverable: 'Recueil numéroté prêt à publier',
+    },
+    {
+      id: 'enfants',
+      title: 'Livres pour Enfants & Contes',
+      icon: Sparkles,
+      subtitle: 'Éveillez l\'imaginaire des plus jeunes avec poésie',
+      description:
+        'Contes merveilleux, récits d\'apprentissage et albums illustrés. Notre plume jeunesse écrit avec bienveillance en respectant la musicalité des mots.',
+      forWho: 'Parents, grands-parents, éducateurs et auteurs jeunesse.',
+      included: [
+        'Découpage page par page pour l\'illustrateur (storyboard textuel)',
+        'Rédaction adaptée aux tranches d\'âge (3-6 ans, 7-10 ans, ados)',
+        'Relecture à voix haute pour vérifier le rythme sonore',
+      ],
+      deliverable: 'Texte découpé avec consignes d\'illustration',
+    },
+    {
+      id: 'kdp',
+      title: 'Publication KDP Amazon',
+      icon: Share2,
+      subtitle: 'Publiez et vendez votre livre en autonomie sur Amazon',
+      description:
+        'Ne laissez pas votre manuscrit dormir. Nous gérons pour vous toute la chaîne technique de mise en ligne sur Amazon Kindle Direct Publishing.',
+      forWho: 'Auteurs de romans, essais, ebooks et livres d\'expert.',
+      included: [
+        'Mise en page aux normes Kindle EPUB et Broché papier (Word/InDesign)',
+        'Création ou adaptation graphique de la couverture',
+        'Rédaction de la fiche produit vendeuse et sélection des mots-clés SEO KDP',
+        'Configuration de votre compte auteur et mise en ligne',
+      ],
+      deliverable: 'Livre publié et disponible à la commande sur Amazon',
+    },
+    {
       id: 'ebooks',
       title: 'Ebooks & Livres d\'Expert',
       icon: BookOpen,
-      subtitle: 'Devenez l\'auteur de référence dans votre secteur',
+      subtitle: 'Positionnez votre autorité professionnelle',
       description:
-        'Le livre est l\'outil d\'autorité ultime pour un entrepreneur ou un consultant d\'expérience. Je prends en charge l\'intégralité du processus de rédaction pour transformer vos connaissances brutes en un livre captivant.',
-      forWho: 'Entrepreneurs, dirigeants, coachs, experts et conférenciers.',
+        'Le livre est l\'outil d\'autorité ultime pour un entrepreneur ou un consultant. Nous transformons votre savoir en un livre d\'expert captivant.',
+      forWho: 'Entrepreneurs, consultants, coachs, dirigeants.',
       included: [
-        'Série d\'interviews approfondies (8 à 12 heures d\'échanges enregistrés)',
-        'Établissement du synopsis complet et de la structure des chapitres',
-        'Rédaction intégrale du manuscrit dans votre voix (150 à 250 pages)',
-        'Jusqu\'à 2 séries de révisions et corrections par chapitre',
-        'Rédaction du résumé quatrième de couverture et préface',
-        'Cession exclusive et définitive de l\'intégralité de vos droits d\'auteur',
+        'Série d\'interviews enregistrées (8 à 12 heures d\'échanges)',
+        'Rédaction du manuscrit (120 à 250 pages)',
+        'Résumé 4ème de couverture et préface',
+        'Cession totale des droits d\'auteur & NDA',
       ],
-      deliverable: 'Fichier manuscrit complet (DOCX / EPUB / PDF prêt pour imprimeur)',
-    },
-    {
-      id: 'articles',
-      title: 'Articles & Contenu Web Stratégique',
-      icon: FileText,
-      subtitle: 'Installez votre leadership d\'opinion et votre visibilité',
-      description:
-        'Des textes de fond fouillés pour alimenter votre blog d\'entreprise, vos tribunes dans la presse spécialisée ou vos publications LinkedIn à forte valeur ajoutée.',
-      forWho: 'Cabinets de conseil, agences, dirigeants et marques exigeantes.',
-      included: [
-        'Recherche documentaire et analyse sectorielle pointue',
-        'Rédaction d\'articles de 1 200 à 3 000 mots au style soigné',
-        'Optimisation naturelle pour le référencement (SEO sans lourdeur)',
-        'Intégration d\'exemples concrets, citations et métaphores percutantes',
-      ],
-      deliverable: 'Fichiers rédigés prêts à publier (MDX, Word ou intégration CMS)',
+      deliverable: 'Fichier manuscrit complet prêt pour publication',
     },
     {
       id: 'biographies',
-      title: 'Biographies & Récits de Vie',
+      title: 'Biographies & Mémoires',
       icon: UserCheck,
-      subtitle: 'Transmettez votre histoire et votre patrimoine humain',
+      subtitle: 'Transmettez votre mémoire familiale ou votre saga d\'entreprise',
       description:
-        'Consignez les moments fondateurs de votre existence, l\'histoire de votre entreprise familiale ou l\'héritage transmis à vos proches dans un récit chaleureux et littéraire.',
-      forWho: 'Particuliers, familles d\'entrepreneurs, fondateurs à la retraite.',
+        'Consignez les moments clés de votre existence ou l\'histoire de votre entreprise familiale dans un récit chaleureux et littéraire.',
+      forWho: 'Familles d\'entrepreneurs, fondateurs, mémorialistes.',
       included: [
-        'Entretiens de mémoire confidentiels et enregistrés (à domicile ou à distance)',
-        'Collecte et mise en valeur des archives familiales ou professionnelles',
-        'Rédaction narrative chronologique ou thématique',
-        'Conseils pour le choix du papier, de la reliure et de l\'imprimeur',
+        'Entretiens de mémoire confidentiels à domicile ou à distance',
+        'Mise en récit narrative des souvenirs et archives',
+        'Conseils de reliure et d\'impression de prestige',
       ],
-      deliverable: 'Manuscrit biographique prêt pour tirage privé ou éditorial',
+      deliverable: 'Ouvrage biographique relié prêt pour tirage privé',
     },
     {
       id: 'discours',
       title: 'Discours & Prises de Parole',
       icon: Mic,
-      subtitle: 'Marquez les esprits lors de vos interventions clés',
+      subtitle: 'Captivez votre auditoire lors de vos allocutions',
       description:
-        'Que ce soit pour une convention annuelle, une cérémonie de vœux ou un colloque international, je rédige des discours calibrés sur la rythmique orale qui captivent l\'auditoire.',
-      forWho: 'PDG, Directeurs Généraux, responsables d\'associations, personnalités.',
+        'Discours de convention annuelle, vœux de direction ou événements solennels calibrés sur le rythme oral.',
+      forWho: 'PDG, Directeurs Généraux, conférenciers.',
       included: [
-        'Brainstorming sur l\'intention centrale et l\'émotion recherchée',
-        'Calcul précis du timing de diction (5, 15 ou 30 minutes)',
-        'Indications de ton, silences et inflexions sur le document final',
+        'Calcul du timing (5, 15 ou 30 minutes)',
+        'Indications de ton et silences sur le prompteur',
       ],
-      deliverable: 'Fichier texte aéré avec prompteur et guide de diction',
-    },
-    {
-      id: 'livres-blancs',
-      title: 'Livres Blancs & Rapports d\'Activité',
-      icon: FileSpreadsheet,
-      subtitle: 'Synthétisez vos analyses stratégiques avec élégance',
-      description:
-        'Transformez vos données brutes, vos études de marché et vos bilans d\'activité en documents clairs, structurés et agréables à parcourir par vos partenaires.',
-      forWho: 'Direction générale, départements RSE, cabinets d\'études.',
-      included: [
-        'Restructuration des données et synthèse des rapports d\'experts',
-        'Rédaction d\'introductions impactantes et de conclusions prospectives',
-        'Titrages incitatifs et encadrés de synthèse',
-      ],
-      deliverable: 'Document éditorial structuré pour mise en page graphiste',
-    },
-    {
-      id: 'reecriture',
-      title: 'Réécriture & Sublimation Éditoriale',
-      icon: Edit3,
-      subtitle: 'Donnez un souffle littéraire à vos premiers écrits',
-      description:
-        'Vous avez rédigé une première version de votre manuscrit mais le style vous semble inégal ? Je reprends votre texte pour en corriger le rythme et en sublimer la clarté.',
-      forWho: 'Auteurs ayant déjà une ébauche complète ou partielle.',
-      included: [
-        'Diagnostic éditorial préalable du manuscrit existant',
-        'Correction syntaxique, grammaticale et stylistique approfondie',
-        'Harmonisation des temps et suppression des pléonasmes et lourdeurs',
-      ],
-      deliverable: 'Manuscrit révisé avec suivi des modifications apparentes',
+      deliverable: 'Texte avec guide de diction oral',
     },
   ];
 
   return (
     <div className="pt-28 pb-20">
       {/* Header Page */}
-      <section className="py-16 bg-[#F4EFEA] border-b border-[#E5E0D8]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#C75B39] mb-3 block">
-            Catalogue d'expertise
+      <section className="py-16 px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto glass-panel rounded-[2.5rem] p-8 sm:p-12 border border-white/15 shadow-glass">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#F6A028] mb-3 block">
+            Catalogue d'Atelier
           </span>
-          <h1 className="font-editorial text-4xl sm:text-5xl md:text-6xl font-bold text-[#1A1A2E] mb-6">
-            Mes prestations de ghostwriting
+          <h1 className="font-editorial text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+            Nos Prestations & Genres Littéraires
           </h1>
-          <p className="text-base sm:text-lg text-[#5A5A72] max-w-2xl mx-auto leading-relaxed">
-            Chaque mission est pensée comme un partenariat éditorial d'exception. Découvrez le détail de ce que comprend chaque accompagnement.
+          <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+            Chaque mission est attribuée à l'auteur spécialisé du collectif (romans, essais, jeunesse, ebooks, biographies, KDP).
           </p>
         </div>
       </section>
 
       {/* Services Detailed List */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto space-y-16">
           {serviceDetails.map((service, index) => {
             const Icon = service.icon;
             return (
               <div
                 key={service.id}
                 id={service.id}
-                className={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-start pt-12 ${
-                  index !== 0 ? 'border-t border-[#E5E0D8]' : ''
-                }`}
+                className="glass-panel rounded-[2.5rem] p-8 sm:p-12 border border-white/15 shadow-glass grid grid-cols-1 lg:grid-cols-12 gap-10 items-start"
               >
-                {/* Left col info */}
+                {/* Left info */}
                 <div className="lg:col-span-5 flex flex-col gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-[#FAF8F4] text-[#C75B39] border border-[#E5E0D8] flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-2xl bg-white/10 text-[#F6A028] border border-white/15 flex items-center justify-center">
                     <Icon className="w-7 h-7" />
                   </div>
-                  <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-[#1A1A2E]">
+                  <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-white">
                     {service.title}
                   </h2>
-                  <span className="text-sm font-semibold text-[#B08D57]">
+                  <span className="text-sm font-semibold text-[#F6A028]">
                     {service.subtitle}
                   </span>
-                  <p className="text-sm text-[#5A5A72] leading-relaxed">
+                  <p className="text-sm text-white/80 leading-relaxed">
                     {service.description}
                   </p>
 
-                  <div className="mt-4 p-4 bg-[#FAF8F4] rounded-xl border-l-4 border-[#C75B39]">
-                    <span className="text-xs font-bold text-[#1A1A2E] block uppercase tracking-wider mb-1">
+                  <div className="p-4 bg-white/5 rounded-xl border-l-4 border-[#F6A028] mt-2">
+                    <span className="text-xs font-bold text-white uppercase tracking-wider block mb-1">
                       Pour qui ?
                     </span>
-                    <p className="text-xs text-[#5A5A72]">{service.forWho}</p>
+                    <p className="text-xs text-white/70">{service.forWho}</p>
                   </div>
 
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 bg-[#C75B39] hover:bg-[#B04A2A] text-white text-xs font-semibold px-6 py-3 rounded-full shadow-soft w-fit mt-2 transition-all duration-200"
+                    className="btn-white-pill text-xs px-6 py-3 w-fit mt-2 inline-flex items-center gap-2"
                   >
-                    <span>Réserver ce service</span>
+                    <span>Réserver cette prestation</span>
                     <ArrowUpRight className="w-4 h-4" />
                   </Link>
                 </div>
 
-                {/* Right col included */}
-                <div className="lg:col-span-7 bg-[#FAF8F4] p-8 rounded-2xl border border-[#E5E0D8]">
-                  <h3 className="font-editorial text-xl font-bold text-[#1A1A2E] mb-6 border-b border-[#E5E0D8] pb-3">
-                    Ce qui est systématiquement inclus :
+                {/* Right included */}
+                <div className="lg:col-span-7 bg-white/5 p-6 sm:p-8 rounded-3xl border border-white/10 backdrop-blur-md">
+                  <h3 className="font-editorial text-xl font-bold text-white mb-6 border-b border-white/10 pb-3">
+                    Ce qui est inclus par l'atelier :
                   </h3>
                   <ul className="space-y-4 mb-8">
                     {service.included.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-sm text-[#2B2B40]">
-                        <CheckCircle2 className="w-5 h-5 text-[#C75B39] shrink-0 mt-0.5" />
+                      <li key={i} className="flex items-start gap-3 text-xs sm:text-sm text-white/90">
+                        <CheckCircle2 className="w-5 h-5 text-[#F6A028] shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className="pt-4 border-t border-[#E5E0D8] flex items-center justify-between text-xs">
-                    <span className="text-[#5A5A72] font-medium">Format de livraison :</span>
-                    <span className="font-bold text-[#1A1A2E]">{service.deliverable}</span>
+                  <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                    <span className="text-white/60 font-medium">Livrable final :</span>
+                    <span className="font-bold text-[#F6A028]">{service.deliverable}</span>
                   </div>
                 </div>
               </div>

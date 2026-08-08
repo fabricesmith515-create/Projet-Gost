@@ -2,14 +2,26 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { ArrowUpRight, CheckCircle2, ShieldCheck, Sparkles, Feather } from 'lucide-react';
+import { ArrowUpRight, Sparkles, BookOpen, Feather, ShieldCheck, Star, ChevronRight } from 'lucide-react';
+import { SITE_CONFIG } from '@/lib/metadata';
 
 export default function HeroSection() {
-  const words = ['Votre nom.', 'Votre histoire.', 'Votre signature.', 'Votre vision.'];
+  const words = ['Votre nom.', 'Votre histoire.', 'Votre roman.', 'Votre vision.'];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+
+  // Genres selector for right-hand column calqued on reference image
+  const genres = [
+    { id: 'romans', name: 'Romans', tag: 'Tous genres', desc: 'Romance, thriller, fantasy, littéraire' },
+    { id: 'essais', name: 'Essais', tag: 'Pensée d\'expert', desc: 'Manifestes & philosophie' },
+    { id: 'enfants', name: 'Livres Enfants', tag: 'Albums & Contes', desc: 'Récits illustrés & éveil' },
+    { id: 'ebooks', name: 'Ebooks & Livres', tag: 'B2B & Non-fiction', desc: 'Livres d\'autorité' },
+    { id: 'biographies', name: 'Biographies', tag: 'Mémoires', desc: 'Récits de vie & familles' },
+    { id: 'kdp', name: 'Publication KDP', tag: 'Amazon', desc: 'Mise en page & publication' },
+  ];
+
+  const [activeGenre, setActiveGenre] = useState(genres[0]);
 
   useEffect(() => {
     const currentWord = words[currentWordIndex];
@@ -34,84 +46,164 @@ export default function HeroSection() {
   }, [displayText, isDeleting, currentWordIndex]);
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-[#FAF8F4] via-[#F4EFEA] to-[#FAF8F4]">
-      {/* Editorial Decorative Plume Watermark */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-5">
-        <Feather className="w-[600px] h-[600px] text-[#1A1A2E]" />
-      </div>
+    <section className="pt-28 pb-16 sm:pt-36 sm:pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        {/* Giant Warm Glass Panel wrapping the entire Hero */}
+        <div className="glass-panel rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 lg:p-14 relative overflow-hidden border border-white/15 shadow-glass">
+          {/* Subtle Ambient Background Light Glows */}
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#F6A028]/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#D94A1E]/30 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-          {/* Badge top */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-[#E5E0D8] shadow-soft mb-8 animate-fade-in">
-            <Sparkles className="w-4 h-4 text-[#C75B39]" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#1A1A2E]">
-              Rédacteur de l'ombre & Ghostwriter Francophone
-            </span>
-          </div>
-
-          {/* Main Headline */}
-          <h1 className="font-editorial text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#1A1A2E] leading-[1.1] mb-6">
-            Vos idées. Mes mots.{' '}
-            <span className="text-[#C75B39] underline decoration-[#B08D57]/40 underline-offset-8 block sm:inline">
-              {displayText}
-              <span className="inline-block w-1 h-8 md:h-12 bg-[#C75B39] ml-1 align-middle cursor-blink" />
-            </span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-[#5A5A72] max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
-            J'écris ce que vous n'avez pas le temps d'écrire. Ebooks, livres d'expert, autobiographies, articles et discours rédigés avec précision dans votre voix unique.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-12">
-            <Link
-              href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C75B39] hover:bg-[#B04A2A] text-white text-base font-semibold px-8 py-4 rounded-full shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-0.5"
-            >
-              <span>Discutons de votre projet</span>
-              <ArrowUpRight className="w-5 h-5" />
-            </Link>
-            <a
-              href="#realisations"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/80 hover:bg-white text-[#1A1A2E] border border-[#D9CBB9] text-base font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:border-[#1A1A2E]"
-            >
-              <span>Voir mes réalisations</span>
-            </a>
-          </div>
-
-          {/* Social Proof */}
-          <div className="pt-8 border-t border-[#E5E0D8]/60 flex flex-col sm:flex-row items-center gap-4 text-left">
-            <div className="flex -space-x-3">
-              <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80"
-                alt="Client 1"
-                className="w-10 h-10 rounded-full border-2 border-white object-cover"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80"
-                alt="Client 2"
-                className="w-10 h-10 rounded-full border-2 border-white object-cover"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&h=120&q=80"
-                alt="Client 3"
-                className="w-10 h-10 rounded-full border-2 border-white object-cover"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80"
-                alt="Client 4"
-                className="w-10 h-10 rounded-full border-2 border-white object-cover"
-              />
-            </div>
-            <div className="text-sm">
-              <div className="flex items-center gap-1 text-[#B08D57]">
-                {'★'.repeat(5)}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center relative z-10">
+            {/* Left Column: Headline & Atelier Intro */}
+            <div className="lg:col-span-5 flex flex-col items-start">
+              {/* Badge top */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-pill text-xs font-semibold text-[#F6A028] mb-6 border border-white/15 shadow-sm">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Atelier d'Écriture & Collectif de 5 Plumes</span>
               </div>
-              <p className="text-[#1A1A2E] font-medium">
-                <strong className="font-bold">+45 projets rédigés</strong> pour des entrepreneurs et décideurs satisfaits
+
+              {/* Headline Display Serif */}
+              <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08] mb-6">
+                Vos idées. Nos mots.{' '}
+                <span className="text-[#F6A028] underline decoration-white/20 underline-offset-8 block sm:inline">
+                  {displayText}
+                  <span className="inline-block w-1 h-8 sm:h-10 bg-[#F6A028] ml-1 align-middle cursor-blink" />
+                </span>
+              </h1>
+
+              {/* Subtitle */}
+              <p className="text-base sm:text-lg text-[#FDF6EC]/85 leading-relaxed mb-8 font-normal">
+                Notre collectif réunit <strong className="text-white font-semibold">5 plumes d'exception</strong> sous la direction de son fondateur (reconnu sous le nom d'<strong>Horizonrose</strong> sur ComeUp). Romans, essais, biographies, contes pour enfants, ebooks et publication KDP.
               </p>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-8">
+                <Link
+                  href="/contact"
+                  className="btn-white-pill px-8 py-4 text-sm font-bold flex items-center justify-center gap-2 text-[#2A1B12] shadow-pill hover:scale-105"
+                >
+                  <span>Discutons de votre projet</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
+                <a
+                  href="#portfolio"
+                  className="glass-pill px-6 py-4 text-sm font-semibold rounded-full flex items-center justify-center gap-2 text-white hover:bg-white/20"
+                >
+                  <span>Voir le portfolio</span>
+                </a>
+              </div>
+
+              {/* Trust Badge */}
+              <div className="flex items-center gap-3 text-xs text-white/70">
+                <ShieldCheck className="w-4 h-4 text-[#F6A028]" />
+                <span>Confidentialité stricte (NDA) & Cession exclusive des droits</span>
+              </div>
+            </div>
+
+            {/* Center Column: 3D Floating Book Showcase with Ambient Glow */}
+            <div className="lg:col-span-4 flex flex-col items-center justify-center relative my-6 lg:my-0">
+              <div className="relative group">
+                {/* Book Glow behind */}
+                <div className="absolute inset-0 bg-[#F6A028]/30 rounded-3xl blur-2xl group-hover:bg-[#F6A028]/40 transition-all duration-500" />
+
+                {/* Main Floating Glass Visual Element */}
+                <div className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-[2rem] glass-panel p-6 flex flex-col justify-between border border-white/25 shadow-glass transform hover:rotate-1 hover:scale-105 transition-all duration-500">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-[#F6A028] bg-white/10 px-3 py-1 rounded-full border border-white/10">
+                      Édition de Prestige
+                    </span>
+                    <Feather className="w-5 h-5 text-white/60" />
+                  </div>
+
+                  {/* Book spine graphic */}
+                  <div className="my-auto text-center p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+                    <BookOpen className="w-12 h-12 text-[#F6A028] mx-auto mb-3 animate-pulse" />
+                    <h3 className="font-editorial text-2xl font-bold text-white mb-1">
+                      {activeGenre.name}
+                    </h3>
+                    <p className="text-xs text-white/70 italic">
+                      « {activeGenre.desc} »
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-white/80">
+                    <span>5 Plumes Dédiées</span>
+                    <span className="text-[#F6A028] font-semibold">Qualité Éditoriale</span>
+                  </div>
+                </div>
+              </div>
+
+              <p className="mt-4 text-xs font-editorial italic text-white/70 text-center">
+                Confiance & Excellence — Chaleur d'écriture garantie
+              </p>
+            </div>
+
+            {/* Right Column: "Choose Your Genre" Selector Calqued on Pinterest Ref */}
+            <div className="lg:col-span-3 flex flex-col gap-4">
+              <div className="p-5 rounded-2xl glass-panel border border-white/15">
+                <span className="text-[10px] uppercase tracking-widest font-bold text-white/60 block mb-1">
+                  Sélection rapide
+                </span>
+                <h4 className="font-editorial text-lg font-bold text-white mb-4">
+                  Choisissez votre genre
+                </h4>
+
+                {/* Genre Selector Pills */}
+                <div className="grid grid-cols-2 gap-2 mb-4">
+                  {genres.map((g) => {
+                    const isSelected = activeGenre.id === g.id;
+                    return (
+                      <button
+                        key={g.id}
+                        onClick={() => setActiveGenre(g)}
+                        className={`text-xs font-semibold px-3 py-2 rounded-xl transition-all text-left ${
+                          isSelected
+                            ? 'bg-white text-[#2A1B12] shadow-pill font-bold scale-105'
+                            : 'bg-white/5 text-white/80 hover:bg-white/15'
+                        }`}
+                      >
+                        {g.name}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Active Genre Mini Card */}
+                <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-md">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-[10px] font-bold text-[#F6A028] uppercase">
+                      {activeGenre.tag}
+                    </span>
+                    <ChevronRight className="w-3.5 h-3.5 text-white/60" />
+                  </div>
+                  <p className="text-xs text-white/90 leading-snug">
+                    {activeGenre.desc}
+                  </p>
+                </div>
+              </div>
+
+              {/* Founder Profile Badge (Horizonrose ComeUp) */}
+              <a
+                href={SITE_CONFIG.comeup}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 rounded-2xl glass-panel border border-white/15 hover:border-[#F6A028] transition-all flex items-center gap-3 group"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+                  alt="Fondateur Horizonrose"
+                  className="w-10 h-10 rounded-full object-cover border border-[#F6A028]"
+                />
+                <div className="text-left flex-1">
+                  <span className="text-[10px] font-bold uppercase text-[#F6A028] block">
+                    Fondateur Horizonrose
+                  </span>
+                  <span className="text-xs text-white font-medium group-hover:text-[#F6A028] transition-colors">
+                    Reconnu sur ComeUp ★★★★★
+                  </span>
+                </div>
+              </a>
             </div>
           </div>
         </div>

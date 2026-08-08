@@ -1,117 +1,181 @@
-import React from 'react';
-import { BookOpen, User, Building, Award, CheckCircle2 } from 'lucide-react';
+'use client';
+
+import React, { useState } from 'react';
+import { BookOpen, ShieldCheck, Sparkles, Lock, ArrowUpRight } from 'lucide-react';
 
 export default function PortfolioExamples() {
-  const examples = [
+  const [selectedCategory, setSelectedCategory] = useState('Tous');
+
+  const categories = [
+    'Tous',
+    'Romans',
+    'Essais',
+    'Nouvelles',
+    'Livres Enfants',
+    'Ebooks',
+    'Biographies',
+    'Publication KDP',
+  ];
+
+  // Anonymized sample entries with explicit replacement placeholders
+  const portfolioItems = [
     {
-      category: 'Livre d\'Expert & Leadership',
-      title: '« Scaler son entreprise sans sacrifier sa vision »',
-      clientType: 'Fondateur d\'une Scale-up Tech (Paris)',
-      format: 'Livre imprimé 180 pages',
-      duration: '3 mois de collaboration',
-      description:
-        'Synthèse de 10 ans d\'expérience entrepreneuriale. Entretiens oraux retranscrits, structuration des chapitres et écriture dynamique.',
-      outcome: 'Publié chez un éditeur national, +8 000 exemplaires vendus, invité sur 6 podcasts majeurs.',
-      icon: Building,
-      tag: 'Édition B2B',
+      id: 1,
+      category: 'Romans',
+      title: '« L\'Ombre du Destin »',
+      genre: 'Roman Thriller & Suspense',
+      cover: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80',
+      extract: '[EXTRAIT À REMPLACER — La pluie battante contre la vitre semblait scander les secondes. Il savait qu\'en ouvrant ce manuscrit, sa vie basculerait.]',
+      duration: '4 mois de création',
+      kdp: true,
     },
     {
-      category: 'Biographie Familiale & Patrimoine',
-      title: '« Trois générations sous le même toit »',
-      clientType: 'Famille d\'industriels (Lyon)',
-      format: 'Ouvrage de prestige relié cuir 220 pages',
+      id: 2,
+      category: 'Essais',
+      title: '« Le Manifeste du Leadership Conscient »',
+      genre: 'Essai de Philosophie d\'Entreprise',
+      cover: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80',
+      extract: '[EXTRAIT À REMPLACER — Diriger ne consiste pas à imposer une vision, mais à créer le cadre dans lequel chaque intuition trouve son épanouissement.]',
+      duration: '2 mois de rédaction',
+      kdp: true,
+    },
+    {
+      id: 3,
+      category: 'Livres Enfants',
+      title: '« Le Petit Renard et la Lune d\'Argent »',
+      genre: 'Album Illustré & Conte Jeunesse',
+      cover: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80',
+      extract: '[EXTRAIT À REMPLACER — Cette nuit-là, Barnabé le renard s\'éveilla sous un éclat argenté. La lune lui murmurait une promesse secrète.]',
+      duration: '1 mois',
+      kdp: true,
+    },
+    {
+      id: 4,
+      category: 'Nouvelles',
+      title: '« Histoires Courtes au Crépuscule »',
+      genre: 'Recueil de Nouvelles Littéraires',
+      cover: 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=600&q=80',
+      extract: '[EXTRAIT À REMPLACER — À 18 heures précises, la vieille horloge du café s\'arrêta. Personne ne se doutait que le temps venait d\'être suspendu.]',
+      duration: '2 mois',
+      kdp: false,
+    },
+    {
+      id: 5,
+      category: 'Ebooks',
+      title: '« Scaler son Entreprise sans sacrifier sa vision »',
+      genre: 'Livre d\'Expert B2B',
+      cover: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=600&q=80',
+      extract: '[EXTRAIT À REMPLACER — La croissance désordonnée détruit la valeur. Voici la méthode en 5 piliers pour structurer votre expansion.]',
+      duration: '3 mois',
+      kdp: true,
+    },
+    {
+      id: 6,
+      category: 'Biographies',
+      title: '« Trois Générations sous le Même Toit »',
+      genre: 'Mémoires Familiales de Prestige',
+      cover: 'https://images.unsplash.com/photo-1463320726281-696a485928c7?auto=format&fit=crop&w=600&q=80',
+      extract: '[EXTRAIT À REMPLACER — Mon grand-père est arrivé à Marseille en 1948 avec pour seule fortune une valise en carton et une certitude inébranlable.]',
       duration: '4 mois d\'immersion',
-      description:
-        'Recueil des mémoires du grand-père fondateur. Recherche d\'archives familiales, récits anecdotiques et mise en récit vivante.',
-      outcome: 'Tirage privé de 300 exemplaires distribués lors du centenaire de l\'entreprise familiale.',
-      icon: User,
-      tag: 'Mémoires & Récits',
-    },
-    {
-      category: 'Ebook & Lead Magnet Stratégique',
-      title: '« Le Guide de la Gouvernance Responsable »',
-      clientType: 'Cabinet de Conseil en Stratégie (Bruxelles)',
-      format: 'Ebook PDF interactif 45 pages',
-      duration: '3 semaines',
-      description:
-        'Vulgarisation de concepts RSE complexes pour décideurs grands comptes. Rédaction fluide et synthétique.',
-      outcome: '+2 500 téléchargements qualifiés et 14 rendez-vous de mission obtenus.',
-      icon: BookOpen,
-      tag: 'Ebook B2B',
-    },
-    {
-      category: 'Discours & Prise de Parole',
-      title: 'Allocution de Convention Annuelle des Cadres',
-      clientType: 'Directrice Générale Groupe Agroalimentaire',
-      format: 'Discours oral de 25 minutes',
-      duration: '1 semaine',
-      description:
-        'Rédaction d\'un discours mobilisateur dans un contexte de restructuration. Ancrage émotionnel et silences travaillés.',
-      outcome: 'Ovation debout de 400 cadres et hausse mesurée de la cohésion interne.',
-      icon: Award,
-      tag: 'Discours Dirigeant',
+      kdp: false,
     },
   ];
 
+  const filteredItems =
+    selectedCategory === 'Tous'
+      ? portfolioItems
+      : selectedCategory === 'Publication KDP'
+      ? portfolioItems.filter((item) => item.kdp)
+      : portfolioItems.filter((item) => item.category === selectedCategory);
+
   return (
-    <section className="py-20 bg-white border-y border-[#E5E0D8]" id="realisations">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#C75B39] mb-2 block">
-            Études de cas anonymisées
+    <section className="py-20 px-4 sm:px-6 lg:px-8" id="portfolio">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#F6A028] mb-2 block">
+            Galerie d'Extraits & Couvertures
           </span>
-          <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A1A2E] mb-4">
+          <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Exemples de réalisations sur-mesure
           </h2>
-          <p className="text-[#5A5A72] text-base sm:text-lg">
-            Par respect pour la confidentialité absolue de mes clients, les noms sont omis. Voici quelques projets emblématiques menés à bien.
+          <p className="text-white/80 text-base sm:text-lg">
+            Par respect pour la confidentialité stricte de nos clients (NDA), les noms d'auteurs sont remplacés par la mention « Client confidentiel ».
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {examples.map((example, idx) => {
-            const Icon = example.icon;
+        {/* Category Filter Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-12">
+          {categories.map((cat) => {
+            const isActive = selectedCategory === cat;
             return (
-              <div
-                key={idx}
-                className="bg-[#FAF8F4] rounded-2xl p-8 border border-[#E5E0D8] shadow-soft hover:shadow-card transition-all duration-300 flex flex-col justify-between"
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`text-xs font-semibold px-5 py-2.5 rounded-full transition-all ${
+                  isActive
+                    ? 'bg-white text-[#2A1B12] shadow-pill font-bold scale-105'
+                    : 'glass-pill text-white/90 hover:bg-white/20'
+                }`}
               >
-                <div>
-                  <div className="flex items-center justify-between gap-4 mb-4">
-                    <span className="text-xs font-bold uppercase tracking-wider bg-white text-[#C75B39] px-3 py-1 rounded-full border border-[#E5E0D8]">
-                      {example.tag}
-                    </span>
-                    <span className="text-xs text-[#5A5A72] font-medium">
-                      {example.duration}
-                    </span>
+                {cat}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Portfolio Visual Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredItems.map((item) => (
+            <div
+              key={item.id}
+              className="glass-panel rounded-[2rem] overflow-hidden border border-white/15 hover:border-[#F6A028] transition-all duration-500 shadow-glass flex flex-col justify-between group hover:-translate-y-2"
+            >
+              <div>
+                {/* Book Cover Image Placeholder */}
+                <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-black/40">
+                  <img
+                    src={item.cover}
+                    alt={`Couverture de ${item.title}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1E120C] via-transparent to-transparent" />
+
+                  {/* Confidential Client Tag */}
+                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md border border-white/20 text-[#F6A028] text-[10px] uppercase font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+                    <Lock className="w-3 h-3 text-[#F6A028]" />
+                    <span>Client confidentiel (NDA)</span>
                   </div>
 
-                  <h3 className="font-editorial text-2xl font-bold text-[#1A1A2E] mb-2">
-                    {example.title}
-                  </h3>
-                  <p className="text-xs text-[#B08D57] font-semibold mb-4">
-                    Client : {example.clientType} • {example.format}
-                  </p>
-
-                  <p className="text-sm text-[#5A5A72] leading-relaxed mb-6">
-                    {example.description}
-                  </p>
+                  {item.kdp && (
+                    <span className="absolute top-4 right-4 bg-[#F6A028] text-[#2A1B12] text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
+                      KDP Amazon
+                    </span>
+                  )}
                 </div>
 
-                <div className="bg-white p-4 rounded-xl border border-[#E5E0D8] flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#25D366] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="text-xs font-bold text-[#1A1A2E] block mb-0.5">
-                      Résultat & Impact :
-                    </span>
-                    <p className="text-xs text-[#5A5A72] leading-normal">
-                      {example.outcome}
-                    </p>
+                <div className="p-6">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#F6A028] block mb-1">
+                    {item.genre}
+                  </span>
+                  <h3 className="font-editorial text-2xl font-bold text-white mb-3 group-hover:text-[#F6A028] transition-colors">
+                    {item.title}
+                  </h3>
+
+                  {/* Extract Text */}
+                  <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-xs text-white/80 font-editorial italic leading-relaxed mb-4">
+                    {item.extract}
                   </div>
                 </div>
               </div>
-            );
-          })}
+
+              <div className="px-6 pb-6 pt-0 border-t border-white/10 flex items-center justify-between text-xs text-white/60">
+                <span>Durée : {item.duration}</span>
+                <span className="text-[#F6A028] font-medium flex items-center gap-1">
+                  Atelier PrêtePlume
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

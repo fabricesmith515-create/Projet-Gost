@@ -3,6 +3,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
+import ChatbotWidget from '@/components/ChatbotWidget';
 import { constructMetadata, generateProfessionalServiceSchema } from '@/lib/metadata';
 
 export const metadata: Metadata = constructMetadata();
@@ -22,11 +23,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#FAF8F4] text-[#1A1A2E] antialiased flex flex-col min-h-screen">
+      <body className="antialiased flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
         <WhatsAppFloat />
+        <ChatbotWidget />
       </body>
     </html>
   );
