@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, Sparkles, BookOpen, Feather, ShieldCheck, ChevronRight } from 'lucide-react';
+import { ArrowUpRight, Sparkles, BookOpen, Feather, ShieldCheck, ChevronRight, Clock, Award } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/metadata';
 
 export default function HeroSection() {
@@ -47,18 +47,22 @@ export default function HeroSection() {
   return (
     <section className="pt-28 pb-16 sm:pt-36 sm:pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
+        {/* Giant Warm Glass Panel wrapping the entire Hero */}
         <div className="glass-panel rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 lg:p-14 relative overflow-hidden border border-white/15 shadow-glass">
+          {/* Subtle Ambient Background Light Glows */}
           <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#F6A028]/20 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#D94A1E]/30 rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center relative z-10">
             {/* Left Column */}
             <div className="lg:col-span-5 flex flex-col items-center text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-pill text-xs font-semibold text-[#F6A028] mb-6 border border-white/15 shadow-sm mx-auto">
+              {/* Centered Badge top with persuasive offer badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-pill text-xs font-semibold text-[#F6A028] mb-6 border border-white/15 shadow-sm mx-auto animate-bounce-subtle">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Atelier d'Écriture</span>
+                <span>Atelier d'Écriture — Diagnostic Éditorial Offert</span>
               </div>
 
+              {/* Centered Headline Display Serif */}
               <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08] mb-6 text-center">
                 Vos idées. Nos mots.{' '}
                 <span className="text-[#F6A028] underline decoration-white/20 underline-offset-8 block sm:inline">
@@ -67,31 +71,38 @@ export default function HeroSection() {
                 </span>
               </h1>
 
+              {/* Persuasive Centered Subtitle */}
               <p className="text-base sm:text-lg text-[#FDF6EC]/85 leading-relaxed mb-8 font-normal text-center max-w-lg mx-auto">
-                Notre collectif rassemble <strong className="text-white font-semibold">5 auteurs d'exception</strong>, dirigé par son fondateur <strong>Horizonrose</strong>, reconnu sur ComeUp.<br className="hidden sm:inline" />
-                Nous écrivons romans, essais, biographies, contes pour enfants, ebooks et publications KDP.
+                Ne laissez pas vos idées s'effacer. Notre collectif de <strong className="text-white font-semibold">5 plumes d'exception</strong> (sous la direction du fondateur <strong>Horizonrose</strong>, sur ComeUp) rédige vos romans, essais, biographies, contes et ebooks. 
               </p>
 
-              {/* Action Button #1 : Contactez-nous */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto mb-8 mx-auto">
-                <Link
-                  href="/contact"
-                  className="btn-white-pill px-8 py-4 text-sm font-bold flex items-center justify-center gap-2 text-[#2A1B12] shadow-pill hover:scale-105"
-                >
-                  <span>Contactez-nous</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
-                <a
-                  href="#portfolio"
-                  className="glass-pill px-6 py-4 text-sm font-semibold rounded-full flex items-center justify-center gap-2 text-white hover:bg-white/20"
-                >
-                  <span>Voir le portfolio</span>
-                </a>
+              {/* Action Button #1 : Contactez-nous with incentive badge */}
+              <div className="flex flex-col items-center gap-3 w-full sm:w-auto mb-8 mx-auto">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto">
+                  <Link
+                    href="/contact"
+                    className="btn-white-pill px-9 py-4 text-base font-bold flex items-center justify-center gap-2 text-[#2A1B12] shadow-pill hover:scale-105 transition-transform"
+                  >
+                    <span>Contactez-nous</span>
+                    <ArrowUpRight className="w-5 h-5 text-[#2A1B12]" />
+                  </Link>
+                  <a
+                    href="#portfolio"
+                    className="glass-pill px-6 py-4 text-sm font-semibold rounded-full flex items-center justify-center gap-2 text-white hover:bg-white/20"
+                  >
+                    <span>Voir le portfolio</span>
+                  </a>
+                </div>
+                <span className="text-[11px] font-bold text-[#F6A028] tracking-wider uppercase flex items-center gap-1.5 mt-1">
+                  <Clock className="w-3.5 h-3.5" />
+                  Étude gratuite de votre manuscrit sous 24h
+                </span>
               </div>
 
-              <div className="flex items-center justify-center gap-3 text-xs text-white/70 mx-auto">
-                <ShieldCheck className="w-4 h-4 text-[#F6A028]" />
-                <span>Confidentialité stricte (NDA) & Devis gratuit en Euros (€)</span>
+              {/* Trust Badge */}
+              <div className="flex items-center justify-center gap-3 text-xs text-white/75 mx-auto">
+                <ShieldCheck className="w-4 h-4 text-[#25D366]" />
+                <span>100% Confidentiel (NDA) & Devis gratuit en Euros (€)</span>
               </div>
             </div>
 
