@@ -48,7 +48,7 @@ export default function ContactPage() {
   };
 
   const whatsappMessage = encodeURIComponent(
-    `Bonjour Atelier PrêtePlume,\nJe viens de remplir ma demande sur le site :\n- Nom : ${formData.name}\n- Pays : ${formData.country}\n- Projet : ${formData.projectType}\n- Pages : ${formData.pageCount}\n- Budget : ${formData.budget}\n- Attentes : ${formData.expectations}`
+    `Bonjour Atelier PrêtePlume,\nJe souhaite échanger sur mon projet :\n- Nom : ${formData.name}\n- Pays : ${formData.country}\n- Projet : ${formData.projectType}\n- Pages : ${formData.pageCount}\n- Budget indicatif (€) : ${formData.budget}\n- Attentes : ${formData.expectations}`
   );
 
   return (
@@ -57,13 +57,13 @@ export default function ContactPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto glass-panel rounded-[2.5rem] p-8 sm:p-12 border border-white/15 shadow-glass">
           <span className="text-xs font-semibold uppercase tracking-widest text-[#F6A028] mb-3 block">
-            Étude de Projet & Diagnostic Éditorial
+            Devis Gratuit en Euros (€)
           </span>
           <h1 className="font-editorial text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
             Confiez-nous votre projet d'écriture
           </h1>
           <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Complétez le formulaire de cadrage ci-dessous. Les outils de contact direct (WhatsApp, Email & Téléphone) s'afficheront immédiatement après validation.
+            Remplissez les informations de cadrage ci-dessous. Vos outils de contact direct (WhatsApp, Email & Téléphone) s'afficheront immédiatement après validation.
           </p>
         </div>
       </section>
@@ -186,7 +186,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Longueur estimée & Budget */}
+                {/* Longueur estimée & Budget Euros (€) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/90 mb-2">
@@ -209,7 +209,7 @@ export default function ContactPage() {
                   <div>
                     <label className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/90 mb-2">
                       <DollarSign className="w-4 h-4 text-[#F6A028]" />
-                      Budget indicatif envisagé
+                      Budget indicatif (en Euros €)
                     </label>
                     <select
                       name="budget"
@@ -217,10 +217,10 @@ export default function ContactPage() {
                       onChange={handleChange}
                       className="w-full px-4 py-3.5 rounded-xl border border-white/15 bg-[#2A1B12] text-white focus:outline-none focus:border-[#F6A028] transition-colors text-sm"
                     >
-                      <option value="Moins de 1 000 € / CHF / CAD">Moins de 1 000 € / CHF / CAD</option>
-                      <option value="1 000 € - 3 000 € / CHF / CAD">1 000 € - 3 000 € / CHF / CAD</option>
-                      <option value="3 000 € - 7 500 € / CHF / CAD">3 000 € - 7 500 € / CHF / CAD</option>
-                      <option value="Plus de 7 500 € / CHF / CAD">Plus de 7 500 € / CHF / CAD</option>
+                      <option value="Moins de 1 000 € Euros">Moins de 1 000 € Euros</option>
+                      <option value="1 000 € - 3 000 € Euros">1 000 € - 3 000 € Euros</option>
+                      <option value="3 000 € - 7 500 € Euros">3 000 € - 7 500 € Euros</option>
+                      <option value="Plus de 7 500 € Euros">Plus de 7 500 € Euros</option>
                     </select>
                   </div>
                 </div>
@@ -241,16 +241,17 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {/* Simplified Submit Button text: Contactez-nous */}
                 <button
                   type="submit"
                   disabled={status.type === 'loading'}
                   className="btn-white-pill w-full py-4 text-base font-bold flex items-center justify-center gap-3 text-[#2A1B12] shadow-pill hover:scale-[1.02] transition-transform"
                 >
                   {status.type === 'loading' ? (
-                    <span>Qualification du projet...</span>
+                    <span>Transmission en cours...</span>
                   ) : (
                     <>
-                      <span>Valider mon projet & Obtenir les accès de contact</span>
+                      <span>Contactez-nous</span>
                       <ArrowRight className="w-5 h-5 text-[#2A1B12]" />
                     </>
                   )}
@@ -265,7 +266,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center justify-center gap-2">
                   <Clock className="w-4 h-4 text-[#F6A028]" />
-                  <span>Devis sur-mesure sous 24h</span>
+                  <span>Devis en Euros (€) sous 24h</span>
                 </div>
                 <div className="flex items-center justify-center gap-2">
                   <FileCheck className="w-4 h-4 text-[#F6A028]" />
@@ -274,7 +275,7 @@ export default function ContactPage() {
               </div>
             </div>
           ) : (
-            /* STEP 2: REVEALED CONTACT TOOLS (Apparition après soumission du formulaire) */
+            /* STEP 2: REVEALED CONTACT TOOLS */
             <div className="glass-panel p-8 sm:p-12 rounded-[2.5rem] border-2 border-[#25D366]/50 shadow-glass text-center animate-fade-in">
               <div className="w-16 h-16 rounded-full bg-[#25D366]/20 border border-[#25D366] text-[#25D366] flex items-center justify-center mx-auto mb-6">
                 <CheckCircle2 className="w-8 h-8" />
@@ -287,7 +288,7 @@ export default function ContactPage() {
                 Merci {formData.name} ! Vos outils de contact sont débloqués
               </h2>
               <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto mb-10 leading-relaxed">
-                Votre projet de <strong>{formData.projectType}</strong> ({formData.pageCount}) a bien été réceptionné. Vous pouvez dès maintenant échanger directement avec l'Atelier PrêtePlume via le canal de votre choix :
+                Votre projet de <strong>{formData.projectType}</strong> ({formData.pageCount}) a bien été enregistré. Vous pouvez dès maintenant échanger directement avec l'Atelier PrêtePlume via le canal de votre choix :
               </p>
 
               {/* Revealed Direct Contact Cards */}

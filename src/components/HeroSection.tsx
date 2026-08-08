@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, Sparkles, BookOpen, Feather, ShieldCheck, Star, ChevronRight } from 'lucide-react';
+import { ArrowUpRight, Sparkles, BookOpen, Feather, ShieldCheck, ChevronRight } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/metadata';
 
 export default function HeroSection() {
@@ -11,7 +11,6 @@ export default function HeroSection() {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
 
-  // Genres selector for right-hand column calqued on reference image
   const genres = [
     { id: 'romans', name: 'Romans', tag: 'Tous genres', desc: 'Romance, thriller, fantasy, littéraire' },
     { id: 'essais', name: 'Essais', tag: 'Pensée d\'expert', desc: 'Manifestes & philosophie' },
@@ -48,22 +47,18 @@ export default function HeroSection() {
   return (
     <section className="pt-28 pb-16 sm:pt-36 sm:pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        {/* Giant Warm Glass Panel wrapping the entire Hero */}
         <div className="glass-panel rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 lg:p-14 relative overflow-hidden border border-white/15 shadow-glass">
-          {/* Subtle Ambient Background Light Glows */}
           <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#F6A028]/20 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#D94A1E]/30 rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center relative z-10">
-            {/* Left Column: Centered Headline & Atelier Intro */}
+            {/* Left Column */}
             <div className="lg:col-span-5 flex flex-col items-center text-center">
-              {/* Centered Badge top */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-pill text-xs font-semibold text-[#F6A028] mb-6 border border-white/15 shadow-sm mx-auto">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Atelier d'Écriture</span>
               </div>
 
-              {/* Centered Headline Display Serif */}
               <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08] mb-6 text-center">
                 Vos idées. Nos mots.{' '}
                 <span className="text-[#F6A028] underline decoration-white/20 underline-offset-8 block sm:inline">
@@ -72,19 +67,18 @@ export default function HeroSection() {
                 </span>
               </h1>
 
-              {/* Centered Subtitle */}
               <p className="text-base sm:text-lg text-[#FDF6EC]/85 leading-relaxed mb-8 font-normal text-center max-w-lg mx-auto">
                 Notre collectif rassemble <strong className="text-white font-semibold">5 auteurs d'exception</strong>, dirigé par son fondateur <strong>Horizonrose</strong>, reconnu sur ComeUp.<br className="hidden sm:inline" />
                 Nous écrivons romans, essais, biographies, contes pour enfants, ebooks et publications KDP.
               </p>
 
-              {/* Centered Action Buttons */}
+              {/* Action Button #1 : Contactez-nous */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto mb-8 mx-auto">
                 <Link
                   href="/contact"
                   className="btn-white-pill px-8 py-4 text-sm font-bold flex items-center justify-center gap-2 text-[#2A1B12] shadow-pill hover:scale-105"
                 >
-                  <span>Discutons de votre projet</span>
+                  <span>Contactez-nous</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
                 <a
@@ -95,20 +89,16 @@ export default function HeroSection() {
                 </a>
               </div>
 
-              {/* Trust Badge */}
               <div className="flex items-center justify-center gap-3 text-xs text-white/70 mx-auto">
                 <ShieldCheck className="w-4 h-4 text-[#F6A028]" />
-                <span>Confidentialité stricte (NDA) & Cession exclusive des droits</span>
+                <span>Confidentialité stricte (NDA) & Devis gratuit en Euros (€)</span>
               </div>
             </div>
 
-            {/* Center Column: 3D Floating Book Showcase with Ambient Glow */}
+            {/* Center Column */}
             <div className="lg:col-span-4 flex flex-col items-center justify-center relative my-6 lg:my-0">
               <div className="relative group">
-                {/* Book Glow behind */}
                 <div className="absolute inset-0 bg-[#F6A028]/30 rounded-3xl blur-2xl group-hover:bg-[#F6A028]/40 transition-all duration-500" />
-
-                {/* Main Floating Glass Visual Element */}
                 <div className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-[2rem] glass-panel p-6 flex flex-col justify-between border border-white/25 shadow-glass transform hover:rotate-1 hover:scale-105 transition-all duration-500">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] uppercase tracking-widest font-bold text-[#F6A028] bg-white/10 px-3 py-1 rounded-full border border-white/10">
@@ -117,7 +107,6 @@ export default function HeroSection() {
                     <Feather className="w-5 h-5 text-white/60" />
                   </div>
 
-                  {/* Book spine graphic */}
                   <div className="my-auto text-center p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
                     <BookOpen className="w-12 h-12 text-[#F6A028] mx-auto mb-3 animate-pulse" />
                     <h3 className="font-editorial text-2xl font-bold text-white mb-1">
@@ -130,7 +119,7 @@ export default function HeroSection() {
 
                   <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-white/80">
                     <span>5 Plumes Dédiées</span>
-                    <span className="text-[#F6A028] font-semibold">Qualité Éditoriale</span>
+                    <span className="text-[#F6A028] font-semibold">Devis en €</span>
                   </div>
                 </div>
               </div>
@@ -140,7 +129,7 @@ export default function HeroSection() {
               </p>
             </div>
 
-            {/* Right Column: "Choose Your Genre" Selector Calqued on Pinterest Ref */}
+            {/* Right Column */}
             <div className="lg:col-span-3 flex flex-col gap-4">
               <div className="p-5 rounded-2xl glass-panel border border-white/15">
                 <span className="text-[10px] uppercase tracking-widest font-bold text-white/60 block mb-1">
@@ -150,7 +139,6 @@ export default function HeroSection() {
                   Choisissez votre genre
                 </h4>
 
-                {/* Genre Selector Pills */}
                 <div className="grid grid-cols-2 gap-2 mb-4">
                   {genres.map((g) => {
                     const isSelected = activeGenre.id === g.id;
@@ -170,7 +158,6 @@ export default function HeroSection() {
                   })}
                 </div>
 
-                {/* Active Genre Mini Card */}
                 <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-md">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[10px] font-bold text-[#F6A028] uppercase">
@@ -184,7 +171,6 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              {/* Founder Profile Badge (Horizonrose ComeUp) */}
               <a
                 href={SITE_CONFIG.comeup}
                 target="_blank"

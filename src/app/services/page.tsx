@@ -6,9 +6,9 @@ import ProcessTimeline from '@/components/ProcessTimeline';
 import FinalCTASection from '@/components/FinalCTASection';
 
 export const metadata = constructMetadata({
-  title: 'Catalogue des Prestations & Formats sur-mesure — PrêtePlume',
+  title: 'Catalogue des Prestations & Offres en Euros (€) — PrêtePlume',
   description:
-    'Découvrez les 11 offres de rédaction sur-mesure de notre atelier : romans, essais, nouvelles, contes enfants, ebooks, biographies et publication KDP Amazon. Devis gratuit sous 24h sans engagement.',
+    'Découvrez les 11 offres de rédaction de notre atelier : romans, essais, nouvelles, contes enfants, ebooks, biographies et publication KDP Amazon. Devis gratuit en Euros (€) sous 24h.',
   canonical: 'https://preteplume.com/services',
 });
 
@@ -29,7 +29,7 @@ export default function ServicesPage() {
         'Jusqu\'à 2 séries de révisions par chapitre',
         'Cession intégrale des droits d\'auteur & NDA confidentiel',
       ],
-      pricingNote: 'Tarif sur devis gratuit sous 24h selon la longueur et l\'échéance',
+      pricingNote: 'Devis sur-mesure gratuit sous 24h en Euros (€)',
       deliverable: 'Manuscrit complet (DOCX / EPUB / Broché prêt pour édition ou KDP)',
     },
     {
@@ -46,7 +46,7 @@ export default function ServicesPage() {
         'Rédaction au style incisif et élégant (100 à 220 pages)',
         'Cession des droits d\'auteur & NDA',
       ],
-      pricingNote: 'Tarif sur devis gratuit sous 24h (selon le volume de recherche)',
+      pricingNote: 'Devis sur-mesure gratuit sous 24h en Euros (€)',
       deliverable: 'Manuscrit d\'essai prêt pour l\'imprimeur ou l\'éditeur',
     },
     {
@@ -62,7 +62,7 @@ export default function ServicesPage() {
         'Rédaction adaptée aux tranches d\'âge (3-6 ans, 7-10 ans, ados)',
         'Relecture à voix haute pour vérifier le rythme sonore',
       ],
-      pricingNote: 'Tarif sur devis gratuit sous 24h selon le format et l\'âge cible',
+      pricingNote: 'Devis sur-mesure gratuit sous 24h en Euros (€)',
       deliverable: 'Texte découpé avec consignes d\'illustration',
     },
     {
@@ -79,7 +79,7 @@ export default function ServicesPage() {
         'Rédaction de la fiche produit vendeuse et sélection des mots-clés SEO KDP',
         'Configuration de votre compte auteur et mise en ligne',
       ],
-      pricingNote: 'Tarif sur devis gratuit sous 24h (pack complet ou à la carte)',
+      pricingNote: 'Devis sur-mesure gratuit sous 24h en Euros (€)',
       deliverable: 'Livre publié et disponible à la commande sur Amazon',
     },
     {
@@ -96,7 +96,7 @@ export default function ServicesPage() {
         'Résumé 4ème de couverture et préface',
         'Cession totale des droits d\'auteur & NDA',
       ],
-      pricingNote: 'Tarif sur devis gratuit sous 24h après analyse de votre projet',
+      pricingNote: 'Devis sur-mesure gratuit sous 24h en Euros (€)',
       deliverable: 'Fichier manuscrit complet prêt pour publication',
     },
     {
@@ -105,14 +105,14 @@ export default function ServicesPage() {
       icon: UserCheck,
       subtitle: 'Transmettez votre mémoire familiale ou votre saga d\'entreprise',
       description:
-        'Consignez les moments clés de votre existence ou l\'histoire de votre entreprise familiale dans un récit chaleureux et littéraire.',
+        'Consignes les moments clés de votre existence ou l\'histoire de votre entreprise familiale dans un récit chaleureux et littéraire.',
       forWho: 'Familles d\'entrepreneurs, fondateurs, mémorialistes.',
       included: [
         'Entretiens de mémoire confidentiels à domicile ou à distance',
         'Mise en récit narrative des souvenirs et archives',
         'Conseils de reliure et d\'impression de prestige',
       ],
-      pricingNote: 'Tarif sur devis gratuit sous 24h (selon le nombre d\'heures d\'entretiens)',
+      pricingNote: 'Devis sur-mesure gratuit sous 24h en Euros (€)',
       deliverable: 'Ouvrage biographique relié prêt pour tirage privé',
     },
     {
@@ -128,7 +128,7 @@ export default function ServicesPage() {
         'Écriture ciselée et poétique (1 500 à 10 000 mots par nouvelle)',
         'Mise en cohérence du recueil complet',
       ],
-      pricingNote: 'Tarif sur devis gratuit sous 24h selon la longueur du recueil',
+      pricingNote: 'Devis sur-mesure gratuit sous 24h en Euros (€)',
       deliverable: 'Recueil numéroté prêt à publier',
     },
     {
@@ -143,7 +143,7 @@ export default function ServicesPage() {
         'Calcul du timing (5, 15 ou 30 minutes)',
         'Indications de ton et silences sur le prompteur',
       ],
-      pricingNote: 'Tarif sur devis gratuit sous 24h',
+      pricingNote: 'Devis sur-mesure gratuit sous 24h en Euros (€)',
       deliverable: 'Texte avec guide de diction oral',
     },
   ];
@@ -154,13 +154,13 @@ export default function ServicesPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto glass-panel rounded-[2.5rem] p-8 sm:p-12 border border-white/15 shadow-glass">
           <span className="text-xs font-semibold uppercase tracking-widest text-[#F6A028] mb-3 block">
-            Offres Structurées & Sur-Mesure
+            Offres Structurées (Tarification en Euros €)
           </span>
           <h1 className="font-editorial text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
             Nos Prestations & Formats Éditoriaux
           </h1>
           <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Chaque offre fait l'objet d'une proposition sur-mesure. Remplissez le formulaire de cadrage (nom, pays, genre, attentes, volume & budget) pour obtenir votre devis et débloquer les outils de contact direct.
+            Chaque offre fait l'objet d'un devis sur-mesure gratuit en Euros (€). Cliquez sur Contactez-nous pour cadrer votre projet.
           </p>
         </div>
       </section>
@@ -205,10 +205,10 @@ export default function ServicesPage() {
 
                   <Link
                     href="/contact"
-                    className="btn-white-pill text-xs px-6 py-3.5 w-fit mt-2 inline-flex items-center gap-2 shadow-pill hover:scale-105"
+                    className="btn-white-pill text-xs px-6 py-3.5 w-fit mt-2 inline-flex items-center gap-2 shadow-pill hover:scale-105 font-bold text-[#2A1B12]"
                   >
-                    <span>Demander mon devis & Débloquer les contacts</span>
-                    <ArrowUpRight className="w-4 h-4" />
+                    <span>Contactez-nous</span>
+                    <ArrowUpRight className="w-4 h-4 text-[#2A1B12]" />
                   </Link>
                 </div>
 
