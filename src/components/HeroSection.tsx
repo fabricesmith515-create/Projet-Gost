@@ -55,16 +55,16 @@ export default function HeroSection() {
           <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#D94A1E]/30 rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center relative z-10">
-            {/* Left Column: Headline & Atelier Intro */}
-            <div className="lg:col-span-5 flex flex-col items-start">
-              {/* Badge top */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-pill text-xs font-semibold text-[#F6A028] mb-6 border border-white/15 shadow-sm">
+            {/* Left Column: Centered Headline & Atelier Intro */}
+            <div className="lg:col-span-5 flex flex-col items-center text-center">
+              {/* Centered Badge top */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-pill text-xs font-semibold text-[#F6A028] mb-6 border border-white/15 shadow-sm mx-auto">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Atelier d'Écriture & Collectif de 5 Plumes</span>
+                <span>Atelier d'Écriture</span>
               </div>
 
-              {/* Headline Display Serif */}
-              <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08] mb-6">
+              {/* Centered Headline Display Serif */}
+              <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08] mb-6 text-center">
                 Vos idées. Nos mots.{' '}
                 <span className="text-[#F6A028] underline decoration-white/20 underline-offset-8 block sm:inline">
                   {displayText}
@@ -72,13 +72,14 @@ export default function HeroSection() {
                 </span>
               </h1>
 
-              {/* Subtitle */}
-              <p className="text-base sm:text-lg text-[#FDF6EC]/85 leading-relaxed mb-8 font-normal">
-                Notre collectif réunit <strong className="text-white font-semibold">5 plumes d'exception</strong> sous la direction de son fondateur (reconnu sous le nom d'<strong>Horizonrose</strong> sur ComeUp). Romans, essais, biographies, contes pour enfants, ebooks et publication KDP.
+              {/* Centered Subtitle */}
+              <p className="text-base sm:text-lg text-[#FDF6EC]/85 leading-relaxed mb-8 font-normal text-center max-w-lg mx-auto">
+                Notre collectif rassemble <strong className="text-white font-semibold">5 auteurs d'exception</strong>, dirigé par son fondateur <strong>Horizonrose</strong>, reconnu sur ComeUp.<br className="hidden sm:inline" />
+                Nous écrivons romans, essais, biographies, contes pour enfants, ebooks et publications KDP.
               </p>
 
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-8">
+              {/* Centered Action Buttons */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto mb-8 mx-auto">
                 <Link
                   href="/contact"
                   className="btn-white-pill px-8 py-4 text-sm font-bold flex items-center justify-center gap-2 text-[#2A1B12] shadow-pill hover:scale-105"
@@ -95,7 +96,7 @@ export default function HeroSection() {
               </div>
 
               {/* Trust Badge */}
-              <div className="flex items-center gap-3 text-xs text-white/70">
+              <div className="flex items-center justify-center gap-3 text-xs text-white/70 mx-auto">
                 <ShieldCheck className="w-4 h-4 text-[#F6A028]" />
                 <span>Confidentialité stricte (NDA) & Cession exclusive des droits</span>
               </div>
