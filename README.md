@@ -109,6 +109,29 @@ En l'absence de clé API `RESEND_API_KEY`, le système passe automatiquement en 
 
 ---
 
+## 💳 Configuration du Paiement en Ligne (Dodo Payments)
+
+L'espace de paiement (`/paiement`) communique avec l'API route `src/app/api/checkout/route.ts` pour générer des guichets de règlement sécurisés en Euros (€).
+
+### 1. Variables d'environnement `.env.local` :
+Dans votre fichier `.env.local` à la racine du projet (ou dans le dashboard Vercel / Netlify) :
+
+```env
+# Clé API Dodo Payments (obtenue sur https://app.dodopayments.com)
+DODO_PAYMENTS_API_KEY=dodo_secret_xxxxxxxxxxxxxxxxxx
+
+# Mode ('test_mode' pour le développement, 'live_mode' en production)
+DODO_PAYMENTS_ENVIRONMENT=test_mode
+
+# URL publique de votre site
+NEXT_PUBLIC_SITE_URL=https://preteplume.com
+```
+
+### 2. Mode Démo & Fallback :
+Sans clé `DODO_PAYMENTS_API_KEY`, le système active automatiquement un mode démonstration guidé permettant de tester l'ensemble du parcours utilisateur sans aucun blocage.
+
+---
+
 ## ⚙️ Numéro WhatsApp & Coordonnées
 
 Pour modifier le numéro WhatsApp qui apparaît sur le bouton flottant et dans les formulaires, modifiez le fichier `src/lib/metadata.ts` :

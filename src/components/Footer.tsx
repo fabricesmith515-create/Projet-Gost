@@ -68,6 +68,11 @@ export default function Footer() {
                   Contact & Demande de Devis
                 </Link>
               </li>
+              <li>
+                <Link href="/paiement" className="hover:text-[#F6A028] font-bold text-[#F6A028] transition-colors flex items-center gap-1">
+                  <span>Payer en ligne (Dodo Payments)</span>
+                </Link>
+              </li>
             </ul>
           </div>
 

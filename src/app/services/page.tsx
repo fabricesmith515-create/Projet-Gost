@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { constructMetadata } from '@/lib/metadata';
-import { BookOpen, FileText, UserCheck, Mic, FileSpreadsheet, Edit3, CheckCircle2, ArrowUpRight, BookHeart, Compass, Feather, Sparkles, Share2, ShieldCheck, Clock } from 'lucide-react';
+import { BookOpen, FileText, UserCheck, Mic, FileSpreadsheet, Edit3, CheckCircle2, ArrowUpRight, BookHeart, Compass, Feather, Sparkles, Share2, ShieldCheck, Clock, CreditCard } from 'lucide-react';
 import ProcessTimeline from '@/components/ProcessTimeline';
 import FinalCTASection from '@/components/FinalCTASection';
 
@@ -203,13 +203,23 @@ export default function ServicesPage() {
                     <span>{service.pricingNote}</span>
                   </div>
 
-                  <Link
-                    href="/contact"
-                    className="btn-white-pill text-xs px-6 py-3.5 w-fit mt-2 inline-flex items-center gap-2 shadow-pill hover:scale-105 font-bold text-[#2A1B12]"
-                  >
-                    <span>Contactez-nous</span>
-                    <ArrowUpRight className="w-4 h-4 text-[#2A1B12]" />
-                  </Link>
+                  <div className="flex flex-wrap items-center gap-3 mt-2">
+                    <Link
+                      href="/contact"
+                      className="btn-white-pill text-xs px-6 py-3.5 w-fit inline-flex items-center gap-2 shadow-pill hover:scale-105 font-bold text-[#2A1B12]"
+                    >
+                      <span>Contactez-nous</span>
+                      <ArrowUpRight className="w-4 h-4 text-[#2A1B12]" />
+                    </Link>
+
+                    <Link
+                      href="/paiement"
+                      className="text-xs px-5 py-3.5 rounded-full bg-[#F6A028]/15 border border-[#F6A028]/40 hover:bg-[#F6A028]/25 font-bold text-[#F6A028] inline-flex items-center gap-2 transition-all"
+                    >
+                      <CreditCard className="w-4 h-4 text-[#F6A028]" />
+                      <span>Régler acompte</span>
+                    </Link>
+                  </div>
                 </div>
 
                 {/* Right included */}

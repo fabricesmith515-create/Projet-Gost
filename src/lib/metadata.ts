@@ -18,6 +18,10 @@ export const SITE_CONFIG = {
     twitter: 'https://twitter.com/preteplume',
     comeup: 'https://comeup.com/@horizonrose',
   },
+  dodoPayments: {
+    environment: process.env.DODO_PAYMENTS_ENVIRONMENT || 'test_mode',
+    hasApiKey: Boolean(process.env.DODO_PAYMENTS_API_KEY),
+  },
 };
 
 export function constructMetadata({

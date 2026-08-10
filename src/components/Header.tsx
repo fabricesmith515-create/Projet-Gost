@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Feather, Menu, X, ArrowUpRight, ExternalLink } from 'lucide-react';
+import { Feather, Menu, X, ArrowUpRight, ExternalLink, CreditCard } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/metadata';
 
 export default function Header() {
@@ -28,6 +28,7 @@ export default function Header() {
     { name: 'À propos', path: '/a-propos' },
     { name: 'Portfolio', path: '/#portfolio' },
     { name: 'Blog', path: '/blog' },
+    { name: 'Paiement', path: '/paiement' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -72,18 +73,15 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Action CTAs: ComeUp Badge + White Pill Contact Button */}
+        {/* Action CTAs: Payment + Contact */}
         <div className="hidden lg:flex items-center gap-3">
-          <a
-            href={SITE_CONFIG.comeup}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-medium text-white/80 hover:text-white px-3.5 py-2 rounded-full glass-pill flex items-center gap-1.5 transition-all"
-            title="Vérifier notre profil sur ComeUp (Horizonrose)"
+          <Link
+            href="/paiement"
+            className="text-xs font-bold text-[#F6A028] px-4 py-2.5 rounded-full bg-[#F6A028]/15 border border-[#F6A028]/40 hover:bg-[#F6A028]/25 flex items-center gap-2 transition-all shadow-sm"
           >
-            <span>Horizonrose</span>
-            <ExternalLink className="w-3 h-3 text-[#F6A028]" />
-          </a>
+            <CreditCard className="w-4 h-4 text-[#F6A028]" />
+            <span>Payer un devis</span>
+          </Link>
 
           <Link
             href="/contact"
@@ -123,6 +121,15 @@ export default function Header() {
           </nav>
 
           <div className="flex flex-col gap-3 pt-2">
+            <Link
+              href="/paiement"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-3 text-sm font-bold text-[#F6A028] bg-[#F6A028]/15 border border-[#F6A028]/40 rounded-full flex items-center justify-center gap-2"
+            >
+              <CreditCard className="w-4 h-4 text-[#F6A028]" />
+              <span>Payer un devis en ligne</span>
+            </Link>
+
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
