@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageSquare, UserCheck, Edit, Send } from 'lucide-react';
+import NumflashIcon from './CategoryIcons';
 
 export default function ProcessTimeline() {
   const steps = [
@@ -9,7 +9,7 @@ export default function ProcessTimeline() {
       subtitle: 'Premier contact & diagnostic',
       description:
         'Un entretien approfondi pour analyser vos intentions, le genre recherché (roman, essai, jeunesse, ebook...) et votre univers.',
-      icon: MessageSquare,
+      iconName: 'step01',
     },
     {
       number: '02',
@@ -17,7 +17,7 @@ export default function ProcessTimeline() {
       subtitle: 'Synopsis, NDA & choix de la plume',
       description:
         'Rédaction du plan détaillé. Attribution à la plume spécialisée de l\'atelier et signature du contrat de confidentialité.',
-      icon: UserCheck,
+      iconName: 'step02',
     },
     {
       number: '03',
@@ -25,7 +25,7 @@ export default function ProcessTimeline() {
       subtitle: 'Écriture par vagues & révisions',
       description:
         'Entretiens enregistrés ou trames narratives. Rédaction progressive avec relectures et validation par le fondateur.',
-      icon: Edit,
+      iconName: 'step03',
     },
     {
       number: '04',
@@ -33,7 +33,7 @@ export default function ProcessTimeline() {
       subtitle: 'Document final & publication',
       description:
         'Remise du manuscrit finalisé, option d\'accompagnement sur Amazon KDP et cession exclusive et intégrale de vos droits.',
-      icon: Send,
+      iconName: 'step04',
     },
   ];
 
@@ -54,20 +54,17 @@ export default function ProcessTimeline() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, idx) => {
-            const Icon = step.icon;
             return (
               <div
                 key={idx}
-                className="glass-panel rounded-3xl p-7 border border-white/15 hover:border-[#F6A028] transition-all duration-300 flex flex-col justify-between group"
+                className="bg-black/95 rounded-3xl p-7 border border-white/15 hover:border-[#F6A028] transition-all duration-300 flex flex-col justify-between group shadow-[0_20px_50px_rgba(0,0,0,0.8)] hover:-translate-y-1 relative"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <span className="font-editorial text-4xl font-bold text-[#F6A028]/40 group-hover:text-[#F6A028] transition-colors">
                       {step.number}
                     </span>
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#F6A028]/30 via-white/10 to-[#2A1B12]/80 text-[#F6A028] flex items-center justify-center border border-[#F6A028]/40 shadow-sm group-hover:scale-110 group-hover:border-[#F6A028] group-hover:bg-[#F6A028] group-hover:text-[#2A1B12] transition-all duration-300">
-                      <Icon className="w-6 h-6 stroke-[1.75] fill-[#F6A028]/25 group-hover:fill-[#2A1B12]/30 drop-shadow-sm" />
-                    </div>
+                    <NumflashIcon name={step.iconName} size="md" />
                   </div>
                   <h3 className="font-editorial text-xl font-bold text-white mb-1">
                     {step.title}

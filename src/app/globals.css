@@ -48,21 +48,21 @@ body {
   background: #F6A028;
 }
 
-/* Glassmorphism utility classes */
+/* Glassmorphism utility classes - Ultra-Sleek Black Theme */
 .glass-panel {
-  background: rgba(42, 27, 18, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.90);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
 .glass-panel-darker {
-  background: rgba(25, 15, 10, 0.85);
+  background: rgba(5, 5, 5, 0.96);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
 }
 
 .glass-pill {
@@ -78,18 +78,21 @@ body {
 }
 
 .btn-white-pill {
-  background-color: #FFFFFF;
-  color: #2A1B12;
-  font-weight: 600;
+  background-color: #000000;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 700;
   border-radius: 9999px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-white-pill:hover {
-  background-color: rgba(255, 255, 255, 0.92);
+  background-color: #0d0d0d;
+  border-color: #F6A028;
+  color: #F6A028;
   transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 30px rgba(246, 160, 40, 0.3);
 }
 
 /* Typography styles */

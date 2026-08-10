@@ -21,10 +21,10 @@ export default function CategoryFilter({
           <button
             key={category}
             onClick={() => onSelectCategory(category)}
-            className={`px-5 py-2 rounded-full text-xs font-semibold tracking-wider transition-all duration-200 ${
+            className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-200 ${
               isActive
-                ? 'bg-[#C75B39] text-white shadow-soft scale-105'
-                : 'bg-white text-[#1A1A2E] border border-[#E5E0D8] hover:border-[#C75B39]'
+                ? 'bg-black text-[#F6A028] border-2 border-[#F6A028] shadow-2xl scale-105 font-bold'
+                : 'bg-black/70 text-white/90 border border-white/20 hover:border-white/40 hover:bg-black'
             }`}
           >
             {category}

@@ -6,10 +6,10 @@ export default function FinalCTASection() {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
-        <div className="glass-panel-darker rounded-[2.5rem] p-8 sm:p-14 text-center border border-white/20 shadow-glass relative overflow-hidden">
+        <div className="bg-black rounded-[2.5rem] p-8 sm:p-14 text-center border border-white/20 shadow-[0_25px_60px_rgba(0,0,0,0.9)] relative overflow-hidden">
           {/* Ambient Glow */}
-          <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#F6A028]/20 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-[#D94A1E]/30 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#F6A028]/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-[#F6A028]/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10">
             <span className="text-xs font-semibold uppercase tracking-widest text-[#F6A028] mb-3 block">
@@ -26,10 +26,10 @@ export default function FinalCTASection() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
               <Link
                 href="/contact"
-                className="btn-white-pill px-10 py-4 text-base font-bold flex items-center justify-center gap-2 w-full sm:w-auto shadow-pill hover:scale-105 text-[#2A1B12]"
+                className="bg-black hover:bg-[#111111] text-white border border-white/20 hover:border-[#F6A028] hover:text-[#F6A028] px-10 py-4 text-base font-bold flex items-center justify-center gap-2 w-full sm:w-auto shadow-2xl hover:scale-105 transition-all rounded-full group/btn"
               >
                 <span>Contactez-nous</span>
-                <ArrowUpRight className="w-5 h-5 text-[#2A1B12]" />
+                <ArrowUpRight className="w-5 h-5 text-white group-hover/btn:text-[#F6A028] transition-colors" />
               </Link>
             </div>
 

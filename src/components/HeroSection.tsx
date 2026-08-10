@@ -81,10 +81,10 @@ export default function HeroSection() {
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto">
                   <Link
                     href="/contact"
-                    className="btn-white-pill px-9 py-4 text-base font-bold flex items-center justify-center gap-2 text-[#2A1B12] shadow-pill hover:scale-105 transition-transform"
+                    className="bg-black hover:bg-[#111111] text-white border border-white/20 hover:border-[#F6A028] hover:text-[#F6A028] px-9 py-4 text-base font-bold flex items-center justify-center gap-2 rounded-full shadow-2xl hover:scale-105 transition-all group/btn"
                   >
                     <span>Contactez-nous</span>
-                    <ArrowUpRight className="w-5 h-5 text-[#2A1B12]" />
+                    <ArrowUpRight className="w-5 h-5 text-white group-hover/btn:text-[#F6A028] transition-colors" />
                   </Link>
                   <a
                     href="#portfolio"

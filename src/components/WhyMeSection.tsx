@@ -1,38 +1,38 @@
 import React from 'react';
-import { Lock, Users, Clock, Sparkles } from 'lucide-react';
+import NumflashIcon from './CategoryIcons';
 
 export default function WhyMeSection() {
   const features = [
     {
-      icon: Lock,
+      iconName: 'shield',
       title: 'Confidentialité absolue (NDA)',
       description:
         'Votre nom est le seul qui apparaîtra sur l\'œuvre finale. Accord de non-divulgation signé avant les échanges et cession totale de tous les droits d\'auteur.',
     },
     {
-      icon: Users,
+      iconName: 'crown',
       title: '5 Plumes = Un genre dédié',
       description:
         'Roman, essai, biographie, jeunesse ou ebook : votre projet est confié à l\'auteur spécialisé de l\'atelier dont le style correspond exactement à votre univers.',
     },
     {
-      icon: Clock,
+      iconName: 'step02',
       title: 'Respect scrupuleux des délais',
       description:
         'Grâce au travail en collectif et à la supervision du fondateur, chaque calendrier est jalonnée et livrée en temps voulu sans aucun retard.',
     },
     {
-      icon: Sparkles,
+      iconName: 'award',
       title: 'Supervision par le Fondateur',
       description:
-        'Le fondateur Horizonrose assure le contrôle qualité littéraire de chaque chapitre pour vous offrir une harmonie et une excellence irréprochables.',
+        'Le fondateur Horizonrose meublé du contrôle qualité littéraire de chaque chapitre pour vous offrir une harmonie et une excellence irréprochables.',
     },
   ];
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="glass-panel rounded-[2.5rem] p-8 sm:p-12 border border-white/15">
+        <div className="bg-black/95 rounded-[2.5rem] p-8 sm:p-12 border border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.8)]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Editorial Header */}
             <div className="lg:col-span-5 flex flex-col gap-4">
@@ -55,16 +55,13 @@ export default function WhyMeSection() {
             {/* Right Features Cards */}
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
               {features.map((feature, i) => {
-                const Icon = feature.icon;
                 return (
                   <div
                     key={i}
-                    className="p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-[#F6A028] transition-all duration-300 flex flex-col gap-3 backdrop-blur-md"
+                    className="p-6 rounded-3xl bg-black/80 border border-white/10 hover:border-[#F6A028] transition-all duration-300 flex flex-col gap-3 group shadow-lg"
                   >
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#F6A028]/30 via-white/10 to-[#2A1B12]/80 text-[#F6A028] flex items-center justify-center border border-[#F6A028]/40 shadow-sm">
-                      <Icon className="w-6 h-6 stroke-[1.75] fill-[#F6A028]/25 drop-shadow-sm" />
-                    </div>
-                    <h3 className="font-editorial text-xl font-bold text-white">
+                    <NumflashIcon name={feature.iconName} size="md" />
+                    <h3 className="font-editorial text-xl font-bold text-white group-hover:text-[#F6A028] transition-colors">
                       {feature.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-white/75 leading-relaxed">

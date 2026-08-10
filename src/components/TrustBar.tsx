@@ -1,49 +1,48 @@
 import React from 'react';
-import { Users, BookOpen, ShieldCheck, Award } from 'lucide-react';
-import { SITE_CONFIG } from '@/lib/metadata';
+import NumflashIcon from './CategoryIcons';
 
 export default function TrustBar() {
   const stats = [
     {
-      icon: Users,
+      iconName: 'crown',
       value: '5 Plumes',
       label: 'Collectif d\'auteurs spécialisés',
     },
     {
-      icon: BookOpen,
+      iconName: 'amazon',
       value: '45+',
       label: 'Livres, romans & projets édités',
     },
     {
-      icon: ShieldCheck,
+      iconName: 'shield',
       value: '100%',
       label: 'Confidentialité NDA & Cession',
     },
     {
-      icon: Award,
+      iconName: 'award',
       value: '99%',
       label: 'Satisfaction clients vérifiée',
     },
   ];
 
-  const regions = [
-    'France',
-    'Suisse (CHF)',
-    'Belgique',
-    'Québec (CAD)',
+  const brands = [
+    { name: 'WhatsApp Direct', iconName: 'whatsapp' },
+    { name: 'Amazon KDP', iconName: 'amazon' },
+    { name: 'Apple Books', iconName: 'apple' },
+    { name: 'Google Play', iconName: 'google' },
+    { name: 'Telegram VIP', iconName: 'telegram' },
   ];
 
   return (
     <section className="py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="glass-panel rounded-3xl p-6 sm:p-8 border border-white/15">
+        <div className="bg-black/95 rounded-3xl p-6 sm:p-8 border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
             {stats.map((stat, idx) => {
-              const Icon = stat.icon;
               return (
-                <div key={idx} className="flex flex-col items-center p-3">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#F6A028]/30 via-white/10 to-[#2A1B12]/80 text-[#F6A028] flex items-center justify-center mb-3 border border-[#F6A028]/40 shadow-sm">
-                    <Icon className="w-6 h-6 stroke-[1.75] fill-[#F6A028]/25 drop-shadow-sm" />
+                <div key={idx} className="flex flex-col items-center p-3 group">
+                  <div className="mb-3">
+                    <NumflashIcon name={stat.iconName} size="sm" />
                   </div>
                   <span className="font-editorial text-3xl font-bold text-white mb-1">
                     {stat.value}
@@ -56,13 +55,28 @@ export default function TrustBar() {
             })}
           </div>
 
-          <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-xs text-white/70 uppercase tracking-wider font-semibold">
-            <span className="text-[#F6A028]">Zone d'intervention & Tarification :</span>
-            {regions.map((region, i) => (
-              <span key={i} className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#F6A028]" />
-                {region}
-              </span>
+          {/* Real Platform Brand Bar */}
+          <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-xs text-white/80 font-semibold">
+            <span className="text-[#F6A028] uppercase tracking-wider font-bold">Plateformes & Canaux d'Échange :</span>
+            {brands.map((brand, i) => (
+              <div key={i} className="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full border border-white/15 hover:border-[#F6A028] transition-colors">
+                <img
+                  src={
+                    brand.iconName === 'whatsapp'
+                      ? 'https://cdn-icons-png.flaticon.com/512/3670/3670051.png'
+                      : brand.iconName === 'telegram'
+                      ? 'https://cdn-icons-png.flaticon.com/512/2111/2111646.png'
+                      : brand.iconName === 'google'
+                      ? 'https://cdn-icons-png.flaticon.com/512/300/300221.png'
+                      : brand.iconName === 'apple'
+                      ? 'https://cdn-icons-png.flaticon.com/512/731/731985.png'
+                      : 'https://cdn-icons-png.flaticon.com/512/5968/5968854.png'
+                  }
+                  alt={brand.name}
+                  className="w-4 h-4 object-contain"
+                />
+                <span className="text-white text-xs">{brand.name}</span>
+              </div>
             ))}
           </div>
         </div>

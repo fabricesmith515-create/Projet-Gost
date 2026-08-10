@@ -1,91 +1,103 @@
 import React from 'react';
 import Link from 'next/link';
-import { BookOpen, FileText, UserCheck, Mic, FileSpreadsheet, Edit3, Sparkles, BookHeart, Compass, Feather, Share2, ArrowRight, ShieldCheck, Sparkle } from 'lucide-react';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
+import NumflashIcon from './CategoryIcons';
 
 export default function ServicesGrid() {
   const services = [
     {
       id: 'romans',
-      icon: BookHeart,
+      iconName: 'romans',
       title: 'Romans (Tous Genres)',
       description:
         'Romance, thriller, fantasy, roman historique ou littéraire. Conception de l\'intrigue, développement des personnages et rédaction fluide.',
+      image: '/images/books/roman.png',
       badge: 'Nouveau',
     },
     {
       id: 'essais',
-      icon: Compass,
+      iconName: 'essais',
       title: 'Essais & Manifestes',
       description:
         'Ouvrages de réflexion philosophique, politique ou sociétale. Formulation percutante de vos thèses et argumentaires d\'expert.',
+      image: '/images/books/essai.png',
       badge: 'Nouveau',
     },
     {
       id: 'nouvelles',
-      icon: Feather,
+      iconName: 'nouvelles',
       title: 'Nouvelles & Recueils',
       description:
         'Format court incisif ou recueil de récits thématiques. Chute travaillée et intensité narrative à chaque texte.',
+      image: '/images/books/nouvelle.png',
       badge: 'Nouveau',
     },
     {
       id: 'enfants',
-      icon: Sparkles,
+      iconName: 'enfants',
       title: 'Livres pour Enfants',
       description:
         'Albums illustrés, contes merveilleux et histoires du soir. Écriture rythmée, bienveillante et adaptée aux tranches d\'âge.',
+      image: '/images/books/enfant.png',
       badge: 'Nouveau',
     },
     {
       id: 'kdp',
-      icon: Share2,
+      iconName: 'kdp',
       title: 'Publication KDP Amazon',
       description:
         'Accompagnement complet pour publier sur Amazon Kindle Direct Publishing : mise en page, formatage EPUB/Broché, couverture et SEO KDP.',
+      image: '/images/books/kdp.png',
       badge: 'Publication',
     },
     {
       id: 'ebooks',
-      icon: BookOpen,
+      iconName: 'ebooks',
       title: 'Ebooks & Livres d\'Expert',
       description:
         'Transformez vos connaissances, formations ou conférences en un livre d\'autorité B2B ou grand public.',
+      image: '/images/books/ebook.png',
       badge: 'Populaire',
     },
     {
       id: 'biographies',
-      icon: UserCheck,
+      iconName: 'biographies',
       title: 'Biographies & Mémoires',
       description:
         'Immortalisez votre parcours d\'entrepreneur, l\'histoire de votre entreprise familiale ou vos mémoires personnelles.',
+      image: '/images/books/biographie.png',
     },
     {
       id: 'discours',
-      icon: Mic,
+      iconName: 'discours',
       title: 'Discours & Prises de Parole',
       description:
         'Allocutions de convention, vœux de direction et discours de mariage ou cérémonie calibrés sur la voix orale.',
+      image: '/images/books/discours.png',
     },
     {
       id: 'articles',
-      icon: FileText,
+      iconName: 'articles',
       title: 'Articles de Fond & Contenu Web',
       description:
         'Tribunes d\'opinion, articles de blog stratégiques et contenus SEO pour asseoir votre leadership d\'opinion.',
+      image: '/images/books/article.png',
     },
     {
       id: 'livres-blancs',
-      icon: FileSpreadsheet,
+      iconName: 'livresblancs',
       title: 'Textes Pro & Livres Blancs',
       description:
         'Synthèse et rédaction rigoureuse de rapports d\'activité, livres blancs prospectifs et documents d\'analyse.',
+      image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80',
     },
     {
       id: 'reecriture',
-      icon: Edit3,
+      iconName: 'reecriture',
       title: 'Réécriture & Sublimation',
       description:
         'Optimisation de vos ébauches manuscrites. Harmonisation du style, correction approfondie et polissage littéraire.',
+      image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80',
     },
   ];
 
@@ -108,47 +120,59 @@ export default function ServicesGrid() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => {
-            const Icon = service.icon;
             return (
               <div
                 key={service.id}
-                className="glass-panel rounded-3xl p-7 border border-white/15 hover:border-[#F6A028] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative"
+                className="bg-black/95 rounded-[2rem] p-7 border border-white/15 hover:border-[#F6A028] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden"
               >
-                {service.badge && (
-                  <span className="absolute top-6 right-6 text-[10px] uppercase tracking-wider font-bold bg-[#F6A028] text-[#2A1B12] px-3 py-0.5 rounded-full shadow-sm">
-                    {service.badge}
-                  </span>
-                )}
                 <div>
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F6A028]/25 via-white/10 to-[#2A1B12]/80 text-[#F6A028] border border-[#F6A028]/40 shadow-[0_0_20px_rgba(246,160,40,0.15)] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:border-[#F6A028] group-hover:bg-[#F6A028] group-hover:text-[#2A1B12] transition-all duration-300">
-                    <Icon className="w-7 h-7 stroke-[1.75] fill-[#F6A028]/20 group-hover:fill-[#2A1B12]/30 drop-shadow-md" />
+                  {/* Top Row: Icon at Top Left, Badge at Top Right */}
+                  <div className="flex items-center justify-between mb-5">
+                    <NumflashIcon name={service.iconName} size="md" />
+
+                    {service.badge && (
+                      <span className="text-[10px] uppercase tracking-wider font-bold bg-[#F6A028] text-[#2A1B12] px-3 py-1 rounded-full shadow-md">
+                        {service.badge}
+                      </span>
+                    )}
                   </div>
+
                   <h3 className="font-editorial text-2xl font-bold text-white mb-3 group-hover:text-[#F6A028] transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-white/75 leading-relaxed mb-6">
                     {service.description}
                   </p>
+
+                  {/* High-End Book Cover Preview */}
+                  <div className="relative h-52 w-full rounded-2xl overflow-hidden mb-6 border border-white/10 bg-black/60 group-hover:border-[#F6A028]/40 transition-colors shadow-inner">
+                    <img
+                      src={service.image}
+                      alt={`Livre ${service.title}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+                  </div>
                 </div>
 
-                {/* Action Button #2 inside services grid card */}
+                {/* Action Button inside service card */}
                 <Link
                   href="/contact"
-                  className="btn-white-pill text-xs px-4 py-3 inline-flex items-center justify-between w-full font-bold text-[#2A1B12] mt-4 shadow-sm hover:scale-102"
+                  className="bg-black hover:bg-[#111111] text-white border border-white/20 hover:border-[#F6A028] hover:text-[#F6A028] text-xs px-5 py-3.5 inline-flex items-center justify-between w-full font-bold rounded-2xl mt-2 shadow-lg hover:scale-[1.02] transition-all group/btn"
                 >
                   <span>Contactez-nous</span>
-                  <ArrowRight className="w-4 h-4 text-[#2A1B12]" />
+                  <ArrowRight className="w-4 h-4 text-white group-hover/btn:text-[#F6A028] transition-colors" />
                 </Link>
               </div>
             );
           })}
         </div>
 
-        {/* Central Action Button #2 in Services Section with incitation */}
-        <div className="text-center mt-14 bg-white/5 p-8 rounded-3xl border border-white/10 max-w-2xl mx-auto backdrop-blur-md">
-          <h3 className="font-editorial text-2xl font-bold text-white mb-2">
+        {/* Central Action Button in Services Section */}
+        <div className="text-center mt-14 bg-black p-8 sm:p-10 rounded-[2rem] border border-white/15 max-w-2xl mx-auto backdrop-blur-md shadow-2xl">
+          <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-white mb-2">
             Un projet unique en tête ?
           </h3>
           <p className="text-xs sm:text-sm text-white/80 mb-6">
@@ -156,10 +180,10 @@ export default function ServicesGrid() {
           </p>
           <Link
             href="/contact"
-            className="btn-white-pill text-base px-10 py-4 inline-flex items-center gap-2 font-bold text-[#2A1B12] shadow-pill hover:scale-105 transition-transform"
+            className="bg-black hover:bg-[#111111] text-white border border-white/20 hover:border-[#F6A028] hover:text-[#F6A028] text-base px-10 py-4 inline-flex items-center gap-2 font-bold rounded-full shadow-2xl hover:scale-105 transition-all group/btn"
           >
             <span>Contactez-nous</span>
-            <ArrowRight className="w-5 h-5 text-[#2A1B12]" />
+            <ArrowRight className="w-5 h-5 text-white group-hover/btn:text-[#F6A028] transition-colors" />
           </Link>
         </div>
       </div>

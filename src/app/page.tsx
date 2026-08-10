@@ -2,6 +2,7 @@ import React from 'react';
 import HeroSection from '@/components/HeroSection';
 import TrustBar from '@/components/TrustBar';
 import ServicesGrid from '@/components/ServicesGrid';
+import IntegrationHero from '@/components/ui/integration-hero';
 import TeamSection from '@/components/TeamSection';
 import WhyMeSection from '@/components/WhyMeSection';
 import ProcessTimeline from '@/components/ProcessTimeline';
@@ -20,6 +21,7 @@ export default function HomePage() {
       <HeroSection />
       <TrustBar />
       <ServicesGrid />
+      <IntegrationHero />
       <TeamSection />
       <WhyMeSection />
       <ProcessTimeline />

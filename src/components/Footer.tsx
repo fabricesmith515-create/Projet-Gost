@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="pt-16 pb-12 px-4 sm:px-6 lg:px-8 border-t border-white/10 text-white">
+    <footer className="pt-16 pb-12 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10 text-white relative z-20">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand Col */}
@@ -69,8 +69,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/paiement" className="hover:text-[#F6A028] font-bold text-[#F6A028] transition-colors flex items-center gap-1">
-                  <span>Payer en ligne (Dodo Payments)</span>
+                <Link href="/paiement" className="hover:text-[#F6A028] font-bold text-white transition-colors flex items-center gap-1">
+                  <span>Payez un devis (Dodo Payments)</span>
                 </Link>
               </li>
             </ul>
