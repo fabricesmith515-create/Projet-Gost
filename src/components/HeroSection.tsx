@@ -189,8 +189,8 @@ export default function HeroSection() {
                 className="p-4 rounded-2xl glass-panel border border-white/15 hover:border-[#F6A028] transition-all flex items-center gap-3 group"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
-                  alt="Fondateur Horizonrose"
+                  src="/images/team/horizonrose.png"
+                  alt="Fondateur Horizonrose — Nantes"
                   className="w-10 h-10 rounded-full object-cover border border-[#F6A028]"
                 />
                 <div className="text-left flex-1">

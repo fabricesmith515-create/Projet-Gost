@@ -23,17 +23,16 @@ export default function LegalPage() {
           <p>
             <strong>Raison sociale :</strong> Digital Product World LTD<br />
             <strong>Forme juridique :</strong> Limited Company (Ltd)<br />
-            <strong>Adresse du siège social :</strong> [ADRESSE À COMPLÉTER PAR LE PROPRIÉTAIRE]<br />
-            <strong>Numéro d'immatriculation / Registre :</strong> [N° À COMPLÉTER PAR LE PROPRIÉTAIRE]<br />
+            <strong>Adresse de l'Atelier Littéraire :</strong> 19 Boulevard de la Liberté, 44000 Nantes, France<br />
             <strong>Directeur de la publication :</strong> Fondateur PrêtePlume (Horizonrose)<br />
             <strong>Email de contact :</strong> contact@preteplume.com
           </p>
 
           <h2>2. Hébergement du site</h2>
           <p>
-            Le site est hébergé par la société <strong>Vercel Inc.</strong><br />
-            Adresse : 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.<br />
-            Site web : <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a>
+            Le site est hébergé par la plateforme <strong>Netlify Inc.</strong><br />
+            Adresse : 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis.<br />
+            Site web : <a href="https://netlify.com" target="_blank" rel="noopener noreferrer">netlify.com</a>
           </p>
 
           <h2>3. Propriété intellectuelle et droits d'auteur</h2>

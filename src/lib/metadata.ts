@@ -13,6 +13,13 @@ export const SITE_CONFIG = {
   founder: 'Horizonrose',
   targetRegions: ['France', 'Suisse', 'Belgique', 'Québec (Canada)'],
   currencies: ['€ (EUR)', 'CHF (Suisse)', 'CAD (Canada)'],
+  address: {
+    street: '19 Boulevard de la Liberté',
+    city: 'Nantes',
+    zipCode: '44000',
+    country: 'France',
+    full: '19 Boulevard de la Liberté, 44000 Nantes, France',
+  },
   social: {
     linkedin: 'https://linkedin.com/company/preteplume',
     twitter: 'https://twitter.com/preteplume',
@@ -107,6 +114,9 @@ export function generateProfessionalServiceSchema() {
     priceRange: '€€€',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: SITE_CONFIG.address.street,
+      addressLocality: SITE_CONFIG.address.city,
+      postalCode: SITE_CONFIG.address.zipCode,
       addressCountry: 'FR',
     },
     description: SITE_CONFIG.description,

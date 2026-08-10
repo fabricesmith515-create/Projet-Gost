@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { SITE_CONFIG } from '@/lib/metadata';
-import { Mail, MessageCircle, Clock, ShieldCheck, FileCheck, Send, CheckCircle2, AlertCircle, ExternalLink, ArrowRight, Sparkles, User, Globe, FileText, Layers, DollarSign } from 'lucide-react';
+import { Mail, MessageCircle, Clock, ShieldCheck, FileCheck, Send, CheckCircle2, AlertCircle, ExternalLink, ArrowRight, Sparkles, User, Globe, FileText, Layers, DollarSign, MapPin } from 'lucide-react';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -56,14 +56,15 @@ export default function ContactPage() {
       {/* Contact Header */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto glass-panel rounded-[2.5rem] p-8 sm:p-12 border border-white/15 shadow-glass">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#F6A028] mb-3 block">
-            Devis Gratuit en Euros (€)
-          </span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-[#F6A028]/30 text-[#F6A028] text-xs font-semibold uppercase tracking-wider mb-4">
+            <MapPin className="w-3.5 h-3.5" />
+            Atelier Physique : 19 Boulevard de la Liberté, 44000 Nantes
+          </div>
           <h1 className="font-editorial text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
             Confiez-nous votre projet d'écriture
           </h1>
           <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Remplissez les informations de cadrage ci-dessous. Vos outils de contact direct (WhatsApp, Email & Téléphone) s'afficheront immédiatement après validation.
+            Échangez avec l'Atelier PrêtePlume à Nantes. Remplissez les informations ci-dessous pour qualifier votre projet et obtenir votre devis sur-mesure gratuit sous 24h.
           </p>
         </div>
       </section>

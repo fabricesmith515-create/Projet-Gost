@@ -1,48 +1,53 @@
 import React from 'react';
-import { ExternalLink, Feather, ShieldCheck, Sparkles } from 'lucide-react';
+import { ExternalLink, Feather, ShieldCheck, Sparkles, MapPin } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/metadata';
 
 export default function TeamSection() {
   const teamMembers = [
     {
-      name: 'Horizonrose (Fondateur)',
+      name: 'Horizonrose',
+      titleRole: 'Fondateur & Directeur d\'Atelier',
       role: 'Directeur d\'Atelier & Master Ghostwriter',
-      specialty: 'Romans, Édition & Direction Littéraire',
-      bio: 'Plusieurs années d\'expérience dans le journalisme et l\'édition. Profil reconnu sur ComeUp sous le pseudo Horizonrose.',
-      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
-      badge: 'Fondateur',
+      specialty: 'Direction Littéraire, Romans & Édition',
+      bio: 'Basé à l\'atelier de Nantes (19 Bd de la Liberté), Horizonrose cumule plus de 10 ans d\'expérience en journalisme et ghostwriting littéraire. Reconnu sur ComeUp pour sa rigueur et son écoute, il pilote l\'atelier et veille personnellement à l\'excellence stylistique de chaque manuscrit.',
+      image: '/images/team/horizonrose.png',
+      badge: 'Fondateur • Nantes',
     },
     {
-      name: 'Plume Spécialiste Essais',
+      name: 'Éléonore Vaneau',
+      titleRole: 'Romancière & Dramaturge',
+      role: 'Ghostwriter de Fiction & Roman',
+      specialty: 'Romance, Thriller, Fantasy & Littéraire',
+      bio: 'Diplômée en Lettres Modernes à la Sorbonne, Éléonore insuffle suspense, intensité émotionnelle et relief psychologique dans vos récits de fiction. Elle façonne des dialogues captivants et des architectures romanesques sur-mesure.',
+      image: '/images/team/eleonore.png',
+      badge: 'Fiction & Roman',
+    },
+    {
+      name: 'Marc-Antoine Delafosse',
+      titleRole: 'Essayiste & Plume d\'Entreprise',
       role: 'Auteur & Essayiste',
-      specialty: 'Essais, Manifestes & Pensée d\'Entreprise',
-      bio: 'Expert en synthèse de concepts complexes, philosophie d\'entreprise et écrits d\'autorité.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
-      badge: 'Non-Fiction',
+      specialty: 'Essais, Manifestes & Livres d\'Expert',
+      bio: 'Ancien consultant en stratégie et plume de direction, Marc-Antoine traduit la pensée des dirigeants et penseurs en des essais incisifs et structurés qui assoient une autorité professionnelle incontestable.',
+      image: '/images/team/marc.png',
+      badge: 'Essais & Manifestes',
     },
     {
-      name: 'Plume Romancière',
-      role: 'Ghostwriter de Fiction',
-      specialty: 'Romance, Thriller, Fantasy & Historique',
-      bio: 'Sens aigu de la dramaturgie narrative et de la création de personnages captivants.',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-      badge: 'Fiction',
-    },
-    {
-      name: 'Plume Jeunesse',
-      role: 'Auteure pour Enfants',
+      name: 'Clara Saint-Germain',
+      titleRole: 'Autrice Jeunesse & Poétesse',
+      role: 'Auteure Jeunesse & Contes',
       specialty: 'Contes, Albums Illustrés & Recueils',
-      bio: 'Plume douce et poétique adaptée à l\'imaginaire des plus jeunes et aux récits illustrés.',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
-      badge: 'Jeunesse',
+      bio: 'Autrice passionnée par le monde de l\'enfance et l\'imaginaire, Clara écrit avec poésie et sensibilité. Elle découpe avec précision chaque texte pour guider les futurs illustrateurs et éveiller la curiosité des jeunes lecteurs.',
+      image: '/images/team/clara.png',
+      badge: 'Littérature Jeunesse',
     },
     {
-      name: 'Plume Biographe',
-      role: 'Biographe & Mémorialiste',
+      name: 'Jean-Baptiste Moreau',
+      titleRole: 'Biographe & Mémorialiste',
+      role: 'Biographe Familial & Saga d\'Entreprise',
       specialty: 'Mémoires Familiales & Parcours de Vie',
-      bio: 'Écoute empathique pour transformer souvenirs oraux et archives en récits de transmission.',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
-      badge: 'Biographies',
+      bio: 'Biographe d\'une grande bienveillance, Jean-Baptiste mène les entretiens de mémoire avec écoute et délicatesse pour transformer souvenirs oraux et archives personnelles en de précieux livres d\'art familiaux.',
+      image: '/images/team/jeanbaptiste.png',
+      badge: 'Biographies & Récits',
     },
   ];
 
@@ -50,14 +55,15 @@ export default function TeamSection() {
     <section className="py-20 px-4 sm:px-6 lg:px-8" id="equipe">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#F6A028] mb-2 block">
-            Atelier d'Écriture & Synergie
-          </span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-[#F6A028]/30 text-[#F6A028] text-xs font-semibold uppercase tracking-wider mb-4">
+            <MapPin className="w-3.5 h-3.5" />
+            Atelier Littéraire basé à Nantes (44000)
+          </div>
           <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Une équipe de 5 plumes complémentaires
+            Des visages, des voix et 5 plumes passionnées
           </h2>
           <p className="text-white/80 text-base sm:text-lg leading-relaxed">
-            Plutôt qu'un intervenant unique, PrêtePlume s'appuie sur le talent croisé de 5 auteurs aguerris sous la supervision du fondateur.
+            Derrière PrêtePlume se trouvent des auteurs de métier, installés et animés par la passion du mot juste. Découvrez notre collectif réuni autour du fondateur Horizonrose.
           </p>
         </div>
 
@@ -69,29 +75,30 @@ export default function TeamSection() {
                 <img
                   src={teamMembers[0].image}
                   alt={teamMembers[0].name}
-                  className="w-full h-80 object-cover"
+                  className="w-full h-88 object-cover"
                 />
               </div>
-              <span className="absolute top-4 left-4 bg-[#F6A028] text-[#2A1B12] text-xs font-bold px-3 py-1 rounded-full shadow-md">
+              <span className="absolute top-4 left-4 bg-[#F6A028] text-[#2A1B12] text-xs font-bold px-3.5 py-1 rounded-full shadow-md flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" />
                 Fondateur & Direction
               </span>
             </div>
 
             <div className="lg:col-span-8 flex flex-col items-start gap-4">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs text-[#F6A028]">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Membre vérifié ComeUp (Horizonrose)</span>
+                <MapPin className="w-3.5 h-3.5 text-[#F6A028]" />
+                <span>Atelier Physique : 19 Bd de la Liberté, 44000 Nantes</span>
               </div>
 
               <h3 className="font-editorial text-3xl sm:text-4xl font-bold text-white">
                 {teamMembers[0].name}
               </h3>
               <p className="text-sm font-semibold text-[#F6A028]">
-                {teamMembers[0].role} • {teamMembers[0].specialty}
+                {teamMembers[0].titleRole} • {teamMembers[0].specialty}
               </p>
 
               <p className="text-sm text-white/80 leading-relaxed">
-                Fondateur de PrêtePlume, je supervise la ligne éditoriale et la répartition de chaque projet vers la plume la plus adaptée. Fort de plusieurs années de succès sur ComeUp sous le pseudo Horizonrose, je garantis le respect absolu des délais et de votre charte littéraire.
+                {teamMembers[0].bio}
               </p>
 
               <div className="flex flex-wrap items-center gap-4 mt-2">
@@ -107,7 +114,7 @@ export default function TeamSection() {
 
                 <div className="flex items-center gap-2 text-xs text-white/70">
                   <ShieldCheck className="w-4 h-4 text-[#F6A028]" />
-                  <span>Cession intégrale des droits & Accord NDA</span>
+                  <span>Cession 100% Droits & Confidentialité NDA</span>
                 </div>
               </div>
             </div>
@@ -122,20 +129,23 @@ export default function TeamSection() {
               className="glass-panel rounded-3xl p-6 border border-white/15 hover:border-[#F6A028] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
             >
               <div>
-                <div className="relative h-48 rounded-2xl overflow-hidden mb-4 border border-white/10">
+                <div className="relative h-56 rounded-2xl overflow-hidden mb-4 border border-white/10 shadow-sm">
                   <img
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <span className="absolute top-3 right-3 bg-white/20 backdrop-blur-md text-white text-[10px] uppercase font-bold px-2.5 py-1 rounded-full border border-white/20">
+                  <span className="absolute top-3 right-3 bg-[#2A1B12]/80 backdrop-blur-md text-[#F6A028] text-[10px] uppercase font-bold px-2.5 py-1 rounded-full border border-[#F6A028]/30">
                     {member.badge}
                   </span>
                 </div>
 
-                <h4 className="font-editorial text-xl font-bold text-white mb-1">
+                <h4 className="font-editorial text-xl font-bold text-white mb-0.5">
                   {member.name}
                 </h4>
+                <span className="text-[11px] text-white/60 block font-medium mb-1.5">
+                  {member.titleRole}
+                </span>
                 <p className="text-xs font-semibold text-[#F6A028] mb-2">
                   {member.specialty}
                 </p>
@@ -144,8 +154,9 @@ export default function TeamSection() {
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-white/10 text-[10px] text-white/60 font-editorial italic">
-                Rédacteur certifié de l'atelier
+              <div className="pt-3 border-t border-white/10 text-[10px] text-white/60 font-editorial italic flex items-center justify-between">
+                <span>Rédacteur certifié</span>
+                <span className="text-[#F6A028]">Atelier Nantes</span>
               </div>
             </div>
           ))}

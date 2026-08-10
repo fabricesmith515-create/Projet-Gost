@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Feather, Mail, MessageCircle, ShieldCheck, ExternalLink, Linkedin, Twitter } from 'lucide-react';
+import { Feather, Mail, MessageCircle, ShieldCheck, ExternalLink, Linkedin, Twitter, MapPin } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/metadata';
 
 export default function Footer() {
@@ -115,8 +115,12 @@ export default function Footer() {
 
           {/* Contact & ComeUp Col */}
           <div>
-            <h4 className="font-editorial text-lg font-bold text-white mb-4">Contact & Plateforme</h4>
+            <h4 className="font-editorial text-lg font-bold text-white mb-4">Atelier & Contact</h4>
             <div className="flex flex-col gap-3 text-xs mb-4">
+              <div className="flex items-start gap-2 text-white/90">
+                <MapPin className="w-4 h-4 text-[#F6A028] shrink-0 mt-0.5" />
+                <span>{SITE_CONFIG.address.full}</span>
+              </div>
               <a
                 href={`mailto:${SITE_CONFIG.email}`}
                 className="flex items-center gap-2 text-white/90 hover:text-[#F6A028] transition-colors"
