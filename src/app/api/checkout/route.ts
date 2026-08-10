@@ -27,6 +27,7 @@ export async function POST(req: Request) {
       process.env.DODO_PAYMENTS_API_KEY ||
       '-VNHxTWdS0fNxZTY.StHhYPDsuw_R49WfFVKKBwG1xJl0oBrnpHwVLShA9XB4dBm6';
 
+    const isLive = process.env.DODO_PAYMENTS_ENVIRONMENT !== 'test_mode';
     const baseUrl =
       process.env.NEXT_PUBLIC_SITE_URL || 'https://gregarious-babka-dee942.netlify.app';
 
@@ -37,118 +38,101 @@ export async function POST(req: Request) {
     const cancelUrl = `${baseUrl}/paiement/annule`;
 
     const amountInCents = Math.round(Number(amount) * 100);
+    const productId = process.env.DODO_PAYMENTS_PRODUCT_ID || 'p_default';
 
-    // 1. Tentative d'appel REST direct à l'API Dodo Payments
-    const endpoints = [
-      'https://live.dodopayments.com/checkout/sessions',
-      'https://test.dodopayments.com/checkout/sessions',
-      'https://api.dodopayments.com/v1/checkout/sessions',
-      'https://test-api.dodopayments.com/v1/checkout/sessions',
-    ];
-
-    for (const endpoint of endpoints) {
-      try {
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`,
-          },
-          body: JSON.stringify({
-            amount_cents: amountInCents,
-            currency: 'EUR',
-            customer: {
-              email: customerEmail,
-              name: customerName || 'Client PrêtePlume',
-            },
-            billing: {
-              city: 'Paris',
-              country: 'FR',
-              state: 'IDF',
-              street: '1 Rue de la Paix',
-              zipcode: '75000',
-            },
-            product_cart: [
-              {
-                product_id: process.env.DODO_PAYMENTS_PRODUCT_ID || 'custom_payment',
-                quantity: 1,
-              },
-            ],
-            metadata: {
-              reference: reference || 'Paiement en ligne',
-              description: description || 'Règlement prestation PrêtePlume',
-            },
-            return_url: returnUrl,
-            cancel_url: cancelUrl,
-          }),
-        });
-
-        if (res.ok) {
-          const data = await res.json();
-          const checkoutUrl = data.checkout_url || data.url || data.payment_link;
-          if (checkoutUrl) {
-            return NextResponse.json({ checkoutUrl, isDemo: false });
-          }
-        }
-      } catch (err) {
-        console.warn(`Tentative sur ${endpoint} a échoué:`, err);
-      }
-    }
-
-    // 2. Tentative avec le SDK Officiel dodopayments
+    // 1. Tentative avec le SDK Officiel dodopayments
     try {
       const DodoPayments = (await import('dodopayments')).default;
-      const environments = ['live_mode', 'test_mode'] as const;
+      const dodoClient = new DodoPayments({
+        bearerToken: apiKey,
+        environment: isLive ? 'live_mode' : 'test_mode',
+      });
 
-      for (const env of environments) {
-        try {
-          const dodoClient = new DodoPayments({
-            bearerToken: apiKey,
-            environment: env,
-          });
+      const sessionPayload: any = {
+        product_cart: [
+          {
+            product_id: productId,
+            quantity: 1,
+            amount: amountInCents,
+          },
+        ],
+        billing: {
+          city: 'Nantes',
+          country: 'FR',
+          state: 'Pays de la Loire',
+          street: '19 Boulevard de la Liberté',
+          zipcode: '44000',
+        },
+        customer: {
+          email: customerEmail,
+          name: customerName || 'Client PrêtePlume',
+        },
+        return_url: returnUrl,
+      };
 
-          const session = await dodoClient.checkoutSessions.create({
-            product_cart: [
-              {
-                product_id: process.env.DODO_PAYMENTS_PRODUCT_ID || 'custom_payment',
-                quantity: 1,
-              },
-            ],
-            billing: {
-              city: 'Paris',
-              country: 'FR',
-              state: 'IDF',
-              street: '1 Rue de la Paix',
-              zipcode: '75000',
-            },
-            customer: {
-              email: customerEmail,
-              name: customerName || 'Client PrêtePlume',
-            },
-            return_url: returnUrl,
-          } as any);
+      const session = await dodoClient.checkoutSessions.create(sessionPayload);
 
-          if (session && (session.checkout_url || (session as any).url)) {
-            return NextResponse.json({
-              checkoutUrl: session.checkout_url || (session as any).url,
-              isDemo: false,
-            });
-          }
-        } catch (sdkErr) {
-          console.warn(`SDK dodoPayments en mode ${env} a échoué:`, sdkErr);
-        }
+      if (session && (session.checkout_url || (session as any).url)) {
+        return NextResponse.json({
+          checkoutUrl: session.checkout_url || (session as any).url,
+          isDemo: false,
+        });
       }
-    } catch (importErr) {
-      console.warn('Impossible d\'importer dodopayments:', importErr);
+    } catch (sdkErr: any) {
+      console.warn('Erreur SDK DodoPayments:', sdkErr?.message || sdkErr);
     }
 
-    // 3. Fallback de démonstration si les serveurs Dodo Payments refusent la clé ou si le produit n'est pas créé
+    // 2. Appel direct REST API
+    const apiDomain = isLive ? 'https://live.dodopayments.com' : 'https://test.dodopayments.com';
+    const res = await fetch(`${apiDomain}/checkout/sessions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        product_cart: [
+          {
+            product_id: productId,
+            quantity: 1,
+            amount: amountInCents,
+          },
+        ],
+        customer: {
+          email: customerEmail,
+          name: customerName || 'Client PrêtePlume',
+        },
+        billing: {
+          city: 'Nantes',
+          country: 'FR',
+          state: 'Pays de la Loire',
+          street: '19 Boulevard de la Liberté',
+          zipcode: '44000',
+        },
+        return_url: returnUrl,
+        cancel_url: cancelUrl,
+      }),
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      const checkoutUrl = data.checkout_url || data.url || data.payment_link;
+      if (checkoutUrl) {
+        return NextResponse.json({ checkoutUrl, isDemo: false });
+      }
+    } else {
+      const errText = await res.text();
+      console.error('Erreur API Dodo Payments direct:', res.status, errText);
+    }
+
+    // Fallback Démo avec explications
     return NextResponse.json({
       isDemo: true,
       checkoutUrl: `/paiement/succes?demo=true&amount=${amount}&ref=${encodeURIComponent(
         reference || 'DEVIS-ONLINE'
       )}`,
-      message: 'Transaction initialisée.',
+      message:
+        'Vérifiez la variable DODO_PAYMENTS_PRODUCT_ID sur Netlify si vous avez créé un produit dans votre tableau de bord Dodo Payments.',
     });
   } catch (error: any) {
     console.error('Erreur API Checkout Dodo Payments:', error);
