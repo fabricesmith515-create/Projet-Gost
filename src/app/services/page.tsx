@@ -178,8 +178,8 @@ export default function ServicesPage() {
               >
                 {/* Left info */}
                 <div className="lg:col-span-5 flex flex-col gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-white/10 text-[#F6A028] border border-white/15 flex items-center justify-center">
-                    <Icon className="w-7 h-7" />
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#F6A028]/30 via-white/10 to-[#2A1B12]/80 text-[#F6A028] border border-[#F6A028]/40 shadow-[0_0_25px_rgba(246,160,40,0.2)] flex items-center justify-center">
+                    <Icon className="w-8 h-8 stroke-[1.75] fill-[#F6A028]/25 drop-shadow-md" />
                   </div>
                   <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-white">
                     {service.title}

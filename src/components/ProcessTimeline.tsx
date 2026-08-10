@@ -65,8 +65,8 @@ export default function ProcessTimeline() {
                     <span className="font-editorial text-4xl font-bold text-[#F6A028]/40 group-hover:text-[#F6A028] transition-colors">
                       {step.number}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-white/10 text-[#F6A028] flex items-center justify-center border border-white/15">
-                      <Icon className="w-5 h-5" />
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#F6A028]/30 via-white/10 to-[#2A1B12]/80 text-[#F6A028] flex items-center justify-center border border-[#F6A028]/40 shadow-sm group-hover:scale-110 group-hover:border-[#F6A028] group-hover:bg-[#F6A028] group-hover:text-[#2A1B12] transition-all duration-300">
+                      <Icon className="w-6 h-6 stroke-[1.75] fill-[#F6A028]/25 group-hover:fill-[#2A1B12]/30 drop-shadow-sm" />
                     </div>
                   </div>
                   <h3 className="font-editorial text-xl font-bold text-white mb-1">

@@ -61,8 +61,8 @@ export default function WhyMeSection() {
                     key={i}
                     className="p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-[#F6A028] transition-all duration-300 flex flex-col gap-3 backdrop-blur-md"
                   >
-                    <div className="w-10 h-10 rounded-full bg-white/10 text-[#F6A028] flex items-center justify-center border border-white/15">
-                      <Icon className="w-5 h-5" />
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#F6A028]/30 via-white/10 to-[#2A1B12]/80 text-[#F6A028] flex items-center justify-center border border-[#F6A028]/40 shadow-sm">
+                      <Icon className="w-6 h-6 stroke-[1.75] fill-[#F6A028]/25 drop-shadow-sm" />
                     </div>
                     <h3 className="font-editorial text-xl font-bold text-white">
                       {feature.title}

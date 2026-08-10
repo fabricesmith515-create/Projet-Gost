@@ -122,8 +122,8 @@ export default function ServicesGrid() {
                   </span>
                 )}
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-white/10 text-[#F6A028] border border-white/15 flex items-center justify-center mb-5 group-hover:bg-white group-hover:text-[#2A1B12] transition-all">
-                    <Icon className="w-6 h-6" />
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F6A028]/25 via-white/10 to-[#2A1B12]/80 text-[#F6A028] border border-[#F6A028]/40 shadow-[0_0_20px_rgba(246,160,40,0.15)] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:border-[#F6A028] group-hover:bg-[#F6A028] group-hover:text-[#2A1B12] transition-all duration-300">
+                    <Icon className="w-7 h-7 stroke-[1.75] fill-[#F6A028]/20 group-hover:fill-[#2A1B12]/30 drop-shadow-md" />
                   </div>
                   <h3 className="font-editorial text-2xl font-bold text-white mb-3 group-hover:text-[#F6A028] transition-colors">
                     {service.title}
